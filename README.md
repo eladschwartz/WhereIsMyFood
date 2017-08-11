@@ -13,7 +13,7 @@
 
 Features
 --------
-**Resturant**
+**Restaurant**
 * Create a menu using the admin panel
 * Assign a driver to an order
 * Track the driver's location
