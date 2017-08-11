@@ -117,7 +117,7 @@ Testing
 
 I tested the app on iPod, iPad(9.7) and iPhone 6s plus and it's working fine.
 
-I didn't test real credit card payment, only stripe test cards, but i'll do it when I add Paypal
+I didn't test payment with real credit card, only stripe test cards, but i'll do it when I add Paypal
 
 
 Credits
