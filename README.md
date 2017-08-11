@@ -13,16 +13,16 @@
 
 Features
 --------
-<u>For Resturant:</u>
+**For Resturant:**
 * Create a menu using the admin panel
 * Assign a driver to an order
 * Track the driver's location
 
-<u>For Customers:</u>
+**For Customers:**
 * Make an order
 * Track the order(track driver location)
  
- <u>For Drivers:</u>
+ **or Drivers:**
 * Get an order assignment from the resturant
  
 
@@ -65,7 +65,7 @@ Installation
 
 * Please import the file "whereismyfood.sql" to your DB.
 
-<u>Xcode</u> <br>
+**Xcode** <br>
 Go to Manager folder --> Constants.swift and change:
 
 * BASE_URL
@@ -74,7 +74,7 @@ Go to Manager folder --> Constants.swift and change:
 
 To your own setup.
 
-<u>PHP</u> <br>
+**PHP** <br>
 Go to appliction folder --> cofnig.php and change:
 
 * $config['base_url']
@@ -98,12 +98,12 @@ You can download the guide for the Apps  from [Here](https://whereismyfood.biz/d
 
 Todo
 ----
-<u> Server </u>
+**Server**
 * Create a new order using admin panel(right now only customer can make a new order using the app)
 * Add refund options (Full or Partial)
 * Edit/Remove an item from order(= partial refund)
 
-<u> Client </u>
+**Client**
 * Fix some bugs
 * Add payment with PayPal
 * Add Order history
@@ -128,7 +128,7 @@ Credits
 * [Alamofire](https://github.com/Alamofire/Alamofire)
 * [LGSideMenuController](https://github.com/Friend-LGA/LGSideMenuController)
 
-<u>Design</u>
+**Design**
 
 * [Flat Icon](https://www.flaticon.com/)
 * [Freepik](http://www.freepik.com/)
