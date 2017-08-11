@@ -92,9 +92,9 @@ To your own setup.
 ## Usage
 This project is still under development but the major features are working.
 
-You can download the guide for the Admin Panel from [Here](https://whereismyfood.biz/docs/amdin_guid.pdf)
+You can download the guide for the Admin Panel from [Here](https://whereismyfood.biz/docs/amdin_guide.pdf)
 
-You can download the guide for the Apps  from [Here](https://whereismyfood.biz/docs/amdin_guid.pdf)
+You can download the guide for the Apps  from [Here](https://whereismyfood.biz/docs/amdin_guide.pdf)
 
 Todo
 ----
