@@ -4,7 +4,7 @@
   <img src="http://whereismyfood.biz/img/whereismyfood-logo.png"  width="200">
 </h1>
 
-**WhereIsMyFood** is an ordering system for resturants written in Swift and PHP Codeigniter (Using Stripe and Sinch)
+**WhereIsMyFood** is an ordering system for restaurants written in Swift and PHP Codeigniter (Using Stripe and Sinch)
 
 <h1 align="center">
   <img src="http://whereismyfood.biz/img/app.png"  width="300" />
@@ -23,7 +23,7 @@ Features
 * Track the order(track driver location)
  
  **Drivers**
-* Get an order assignment from the resturant
+* Get an order assignment from the restaurant
  
 
 Table of Contents
@@ -50,7 +50,7 @@ Prerequisites
 
 * Xcode 8
 * Stripe Account
-* Sinch Account(SMS verfcaiton)
+* Sinch Account(SMS verification)
 * PHP > 5.6
 
 
@@ -75,11 +75,11 @@ Go to Manager folder --> Constants.swift and change:
 To your own setup.
 
 **PHP** <br>
-Go to appliction folder --> cofnig.php and change:
+Go to application folder --> cofnig.php and change:
 
 * $config['base_url']
 
-Go to appliction folder --> database.php and change:
+Go to application folder --> database.php and change:
 
 * hostname
 * username
@@ -134,7 +134,7 @@ Credits
 * [Freepik](http://www.freepik.com/)
 * [Freepik](http://www.freepik.com/)
 * [Icons8](https://icons8.com/)
-* 	The Desgin is Based on a template that I bought  from:  [Graphicriver](https://graphicriver.net/item/mosher-restaurant-mobile-app-ui-kit/17807658?_ga=2.135878321.1295015634.1502460424-1570167637.1483370751) - see license for this template:  [license](https://graphicriver.net/licenses/faq#license-freely-accessible-a)
+* 	The Design is Based on a template that I bought  from:  [Graphicriver](https://graphicriver.net/item/mosher-restaurant-mobile-app-ui-kit/17807658?_ga=2.135878321.1295015634.1502460424-1570167637.1483370751) - see license for this template:  [license](https://graphicriver.net/licenses/faq#license-freely-accessible-a)
     
 
 License
