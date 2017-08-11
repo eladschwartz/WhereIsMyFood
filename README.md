@@ -1,8 +1,8 @@
 # WhereIsMyFood - Orders Management/Tracking System
 
-<h2 align="center">
+
   <img src="http://whereismyfood.biz/img/whereismyfood-logo.png"  width="200">
-</h2>
+
 
 **WhereIsMyFood** is an ordering system for resturants written in Swift and PHP Codeigniter (Using Stripe and Sinch)
 
