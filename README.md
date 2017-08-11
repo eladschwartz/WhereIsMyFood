@@ -1,14 +1,14 @@
 # WhereIsMyFood - Orders Management/Tracking System
 
-
+<h1 align="center">
   <img src="http://whereismyfood.biz/img/whereismyfood-logo.png"  width="200">
-
+</h1>
 
 **WhereIsMyFood** is an ordering system for resturants written in Swift and PHP Codeigniter (Using Stripe and Sinch)
 
 <h1 align="center">
-  <img src="http://whereismyfood.biz/img/app.png" alt="vim-devicons overall screenshot" width="300" />
-  <img src="http://whereismyfood.biz/img/web.png" alt="vim-devicons overall screenshot"  width="400" />
+  <img src="http://whereismyfood.biz/img/app.png"  width="300" />
+  <img src="http://whereismyfood.biz/img/web.png"   width="400" />
 </h1>
 
 Features
