@@ -37,9 +37,9 @@ Table of Contents
 
 [**Features**](#detailed-features)
 
-* [**Todo**](#todo)
+[**Todo**](#todo)
 
-* [**License**](#license)
+[**License**](#license)
 
 <br />
 
