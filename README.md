@@ -13,16 +13,16 @@
 
 Features
 --------
-**For Resturant:**
+**Resturant**
 * Create a menu using the admin panel
 * Assign a driver to an order
 * Track the driver's location
 
-**For Customers:**
+**Customers**
 * Make an order
 * Track the order(track driver location)
  
- **or Drivers:**
+ **Drivers**
 * Get an order assignment from the resturant
  
 
