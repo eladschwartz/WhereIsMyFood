@@ -34,27 +34,12 @@ Table of Contents
 [**Installation**](#installation)
 
 [**Usage**](#usage)
-* [**Lightline Setup**](#lightline-setup)
-* [**Powerline Setup**](#powerline-setup)
-* [**Extra Configuration**](#extra-configuration)
-* [**Character Mappings**](#character-mappings)
 
 [**Features**](#detailed-features)
 
-[**Screenshots**](#screenshots)
-
-[**Methods**](#public-methods)
-
-[**Developer**](#developer)
-* [**API**](#api)
-* [**Contributing**](#contributing)
-* [**Inspiration and special thanks**](#inspiration-and-special-thanks)
 * [**Todo**](#todo)
+
 * [**License**](#license)
-
-[**FAQ / Troubleshooting**](#faq--troubleshooting)
-
-[**Rationale**](#rationale)
 
 <br />
 
