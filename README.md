@@ -99,9 +99,10 @@ You can download the guide for the Apps  from [Here](https://whereismyfood.biz/d
 Todo
 ----
 **Server**
-* Create a new order using admin panel(right now only customer can make a new order using the app)
+* Create a new order using admin panel(right now only a customer can make a new order using the app)
 * Add refund options (Full or Partial)
 * Edit/Remove an item from order(= partial refund)
+* Add item to existing order
 
 **Client**
 * Fix some bugs
@@ -130,7 +131,7 @@ Credits
 * [LGSideMenuController](https://github.com/Friend-LGA/LGSideMenuController)
 
 **Design**
-* [Pexels] (https://www.pexels.com/)
+* [Pexels](https://www.pexels.com/)
 * [Flat Icon](https://www.flaticon.com/)
 * [Freepik](http://www.freepik.com/)
 * [Freepik](http://www.freepik.com/)
