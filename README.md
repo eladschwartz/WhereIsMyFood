@@ -122,6 +122,7 @@ I didn't test payment with real credit card, only stripe test cards, but i'll do
 
 Credits
 ----
+* [AdminLTE](https://github.com/almasaeed2010/AdminLTE)
 * [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON)
 * [CountryPicker](https://github.com/Keyflow/CountryPicker-iOS-Swift)
 * [SkyFloatingLabelTextField](https://github.com/Skyscanner/SkyFloatingLabelTextField)
@@ -129,7 +130,7 @@ Credits
 * [LGSideMenuController](https://github.com/Friend-LGA/LGSideMenuController)
 
 **Design**
-
+* [Pexels] (https://www.pexels.com/)
 * [Flat Icon](https://www.flaticon.com/)
 * [Freepik](http://www.freepik.com/)
 * [Freepik](http://www.freepik.com/)
