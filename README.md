@@ -14,7 +14,8 @@
 Features
 --------
 **Restaurant**
-* Create a menu using the admin panel
+* Create a menu
+* Create many branchs for the restaurant(each has it's own menu)
 * Assign a driver to an order
 * Track the driver's location
 
