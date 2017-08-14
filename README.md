@@ -107,6 +107,7 @@ Todo
 * Add Order history
 * Add Favorites
 * Push Notifications
+* Unit Testing
 
 
 Testing
