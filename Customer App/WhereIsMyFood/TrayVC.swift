@@ -74,7 +74,7 @@ class TrayVC: UIViewController {
         self.tableView.reloadData()
     }
     
-    func setTrayEmpty(){
+    func setTrayEmpty() {
         if Tray.currentTray.items.count == 0 {
             emptyCartView = Bundle.main.loadNibNamed("EmptyCart", owner: self, options: nil)?.first as? EmptyCartView
             if let emptyView = emptyCartView {
@@ -141,7 +141,7 @@ class TrayVC: UIViewController {
                 if json[0] ==  JSON.null || json[0]["status_name"] == "Delivered" {
                     APIManager.shared.createOrder(stripeToken: token!, isNewCard: self.isNewCard, last4Digits:self.last4Digits ) { (json) in
                         // if there was a problem with chaarging the credit card, show a message with the error
-                        if (json["charge"]["status"] != "succeeded"){
+                        if (json["charge"]["status"] != "succeeded") {
                             if let message = json["message"].string {
                                 self.activityIndicator.stopAnimating()
                                 let alertViewError = Helpers.showErrorAlert(btnText: "OK".localized(category: "Buttons"), message: message)
@@ -184,7 +184,7 @@ class TrayVC: UIViewController {
     
     func showContorls(show: Bool) {
         tableView.isHidden = show == false ? true : false
-        if (show){
+        if (show) {
             //  Display all of the UI controllers and load items
             loadItems()
         }
@@ -364,7 +364,7 @@ extension TrayVC: UITableViewDelegate, UITableViewDataSource, TrayCellelegate {
         let okAction = UIAlertAction(title: "Delete".localized(category: "Buttons"), style: .default, handler: { (action: UIAlertAction!) in
             Tray.currentTray.items.remove(at: (indexPath?.row)!)
             self.tableView.deleteRows(at: [indexPath!], with: .fade)
-            if (Tray.currentTray.items.count == 0) {self.showContorls(show: false)}
+            if (Tray.currentTray.items.count == 0) { self.showContorls(show: false)}
             self.setTrayEmpty()
             self.loadItems()
             self.tableView.reloadData()

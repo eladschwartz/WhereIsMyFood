@@ -9,10 +9,7 @@
 import Foundation
 import SwiftyJSON
 
-
-
 class Restaurant {
-    
     var id: Int?
     var name: String?
     var address: String?

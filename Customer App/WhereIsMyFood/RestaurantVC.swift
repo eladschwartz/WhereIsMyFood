@@ -25,7 +25,7 @@ class RestaurantVC: UIViewController {
         activityIndicator = Helpers.showActivityIndicator(view: self.view)
         //Get customer details and token - then load restaurants
         if let phoneNumber = Helpers.userDefaults.string(forKey: "phone_num") {
-            APIManager.shared.getDetailsAndSave(phone: phoneNumber){ (json) in
+            APIManager.shared.getDetailsAndSave(phone: phoneNumber) { (json) in
                 self.title = "RestaurantsTitle".localized(category: "Restaurants")
                 self.searchRestaurantBar.placeholder = "Search Restaurant".localized(category: "Restaurants")
                 self.hideKeyboardWhenTappedAround()
@@ -52,7 +52,7 @@ class RestaurantVC: UIViewController {
                     let restaurant = Restaurant(json:item)
                     self.restaurants.append(restaurant)
                 }
-                DispatchQueue.main.async(){
+                DispatchQueue.main.async() {
                     self.tableView.reloadData()
                     self.activityIndicator.stopAnimating()
                 }
@@ -100,7 +100,7 @@ extension RestaurantVC: UITableViewDelegate, UITableViewDataSource {
         
         //Load restaurant image. if there isn't none use default image
         if let imageName = restaurant.image {
-            if (imageName != "UPLOAD IMAGE"){
+            if (imageName != "UPLOAD IMAGE") {
                 let url = "\(imageName)"
                 if let imageUrl = URL(string: url) {
                     APIManager.shared.loadImage(itemName: restaurantName, itemId: restaurantId, imgUrl: imageUrl, { (image) in

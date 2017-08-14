@@ -69,7 +69,7 @@ class APIManager {
     }
     
     // Get Settings
-    func isSingleBranch(completionHandler: @escaping (JSON) -> Void){
+    func isSingleBranch(completionHandler: @escaping (JSON) -> Void) {
         let path = "Api/get_is_single_branch/"
         requestServer(.get, path, nil, URLEncoding(), completionHandler)
     }
@@ -82,7 +82,7 @@ class APIManager {
     
     //   ---------- Customers ------- // 
     
-    //  Save Customer details
+    // Save Customer details
     func saveUserDetailsToDB(name: String, email: String, phone: String,address: Address , completionHandler: @escaping (JSON) -> Void) {
         let path = "Api/save_user/"
         if let uid = UIDevice.current.identifierForVendor?.uuidString {
@@ -243,45 +243,45 @@ class APIManager {
     //  ---------- Restaurants ------- // 
     
     // Get Resturant List
-    func getRestaurants(completionHandler: @escaping (JSON) -> Void){
+    func getRestaurants(completionHandler: @escaping (JSON) -> Void) {
         let path = "Api/get_restaurants/"
         requestServer(.get, path, nil, URLEncoding(), completionHandler)
     }
     
     // Get a single restaurant
-    func getRestaurant(completionHandler: @escaping (JSON) -> Void){
+    func getRestaurant(completionHandler: @escaping (JSON) -> Void) {
         let path = "Api/get_restaurant/"
         requestServer(.get, path, nil, URLEncoding(), completionHandler)
     }
     
     
     // Get Items List
-    func getItems(restaurant_id: Int, category_id: Int, completionHandler: @escaping (JSON) -> Void){
+    func getItems(restaurant_id: Int, category_id: Int, completionHandler: @escaping (JSON) -> Void) {
         let parameters: Parameters = ["restaurant_id": restaurant_id, "category_id": category_id]
         let path = "Api/get_menu_items/"
         requestServer(.get, path, parameters, URLEncoding(), completionHandler)
     }
     // Get all addons for an item
-    func getAddons(id: Int, completionHandler: @escaping (JSON) -> Void){
+    func getAddons(id: Int, completionHandler: @escaping (JSON) -> Void) {
         let parameters: Parameters = ["id": id]
         let path = "Api/get_addons_by_item/"
         requestServer(.get, path, parameters, URLEncoding(), completionHandler)
     }
     // Get single section by id
-    func getSection(id: Int, completionHandler: @escaping (JSON) -> Void){
+    func getSection(id: Int, completionHandler: @escaping (JSON) -> Void) {
         let parameters: Parameters = ["id": id]
         let path = "Api/get_section_by_id/"
         requestServer(.get, path, parameters, URLEncoding(), completionHandler)
     }
     // Get all the sections for an item
-    func getSections(id: Int, completionHandler: @escaping (JSON) -> Void){
+    func getSections(id: Int, completionHandler: @escaping (JSON) -> Void) {
         let parameters: Parameters = ["id": id]
         let path = "Api/get_sections_by_item/"
         requestServer(.get, path, parameters, URLEncoding(), completionHandler)
     }
     
     // Get all the catgeories for a restaurant
-    func getItemsCategories(completionHandler: @escaping (JSON) -> Void){
+    func getItemsCategories(completionHandler: @escaping (JSON) -> Void) {
         let path = "Api/get_menu_items_categories/"
         requestServer(.get, path, nil, URLEncoding(), completionHandler)
     }
@@ -291,7 +291,7 @@ class APIManager {
     //  ---------- Orders ------- // 
     
     // Create and order
-    func createOrder(stripeToken: String, isNewCard: Bool, last4Digits: String, completionHandler: @escaping (JSON) -> Void){
+    func createOrder(stripeToken: String, isNewCard: Bool, last4Digits: String, completionHandler: @escaping (JSON) -> Void) {
         let itemsarr = Tray.currentTray.items
         var jsonarr = [[String : Any]]()
         
