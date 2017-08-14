@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Buttons</key>
+	<dict>
+		<key>Error</key>
+		<string>Error</string>
+		<key>OK</key>
+		<string>OK</string>
+		<key>Delete</key>
+		<string>Delete</string>
+		<key>Cancel</key>
+		<string>Cancel</string>
+		<key>Update</key>
+		<string>Update</string>
+	</dict>
+	<key>Menu</key>
+	<dict>
+		<key>Search Restaurant</key>
+		<string></string>
+		<key>Restaurants</key>
+		<string>Restaurants</string>
+		<key>Tray</key>
+		<string>Tray</string>
+		<key>Orders</key>
+		<string>Order</string>
+		<key>Settings</key>
+		<string>Settings</string>
+	</dict>
+	<key>Restaurants</key>
+	<dict>
+		<key>RestaurantsTitle</key>
+		<string>Restaurants</string>
+		<key>Search Restaurant</key>
+		<string>Search restaurant</string>
+	</dict>
+	<key>Items</key>
+	<dict>
+		<key>Search item</key>
+		<string>Search item</string>
+		<key>View Tray</key>
+		<string>View Tray</string>
+	</dict>
+	<key>Item Details</key>
+	<dict>
+		<key>Item Details</key>
+		<string>Item Details</string>
+		<key>Add To Tray</key>
+		<string>Add To Tray</string>
+	</dict>
+	<key>Tray</key>
+	<dict>
+		<key>Go to order</key>
+		<string>Go to order</string>
+		<key>Open Order Exist</key>
+		<string>Open Order Exist</string>
+		<key>Open Order Message</key>
+		<string>Your current order isn&apos;t completed!</string>
+		<key>Floor</key>
+		<string>Floor:</string>
+		<key>Apartment</key>
+		<string>Apartment:</string>
+		<key>Delete Item</key>
+		<string>Delete Item?</string>
+		<key>Delete Message</key>
+		<string>This will delete the item from the order</string>
+		<key>Empty Tray</key>
+		<string>Your tray is empty. Please select meal.</string>
+		<key>Place Order</key>
+		<string>Place Order</string>
+		<key>Tray</key>
+		<string>Tray</string>
+		<key>Delivery Notes</key>
+		<string>Add delivery notes...</string>
+		<key>Restaurants Notes</key>
+		<string>Add restaurants notes...</string>
+		<key>Subtotal</key>
+		<string>Subtotal</string>
+		<key>Total</key>
+		<string>Total</string>
+		<key>Add Payment</key>
+		<string>Add Payment</string>
+		<key>Delivery Fee</key>
+		<string>Delivery Fee</string>
+		<key>Change</key>
+		<string>Change</string>
+	</dict>
+	<key>Order</key>
+	<dict>
+		<key>DRI</key>
+		<string>DRI</string>
+		<key>Order Status</key>
+		<string>Order Status:</string>
+		<key>You</key>
+		<string>You</string>
+		<key>ON  THE WAY</key>
+		<string>ON  THE WAY</string>
+	</dict>
+	<key>Payment</key>
+	<dict>
+		<key>Delete Title</key>
+		<string>Can&apos;t delete only card</string>
+		<key>Delete Message</key>
+		<string>You must have one valid credit card</string>
+	</dict>
+	<key>Settings</key>
+	<dict>
+		<key>Change</key>
+		<string>Change</string>
+		<key>Apartment</key>
+		<string>Apartment Number</string>
+		<key>Floor</key>
+		<string>Floor</string>
+		<key>Address</key>
+		<string>Address</string>
+		<key>Change Title</key>
+		<string>Change address</string>
+		<key>Change Message</key>
+		<string>&quot;Please fill the fields</string>
+	</dict>
+</dict>
+</plist>

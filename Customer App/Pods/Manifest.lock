@@ -1,0 +1,34 @@
+PODS:
+  - Alamofire (4.5.0)
+  - AlamofireImage (3.2.0):
+    - Alamofire (~> 4.1)
+  - CountryPickerSwift (1.4.4)
+  - LGSideMenuController (2.1.1)
+  - SinchVerification-Swift (2.0.4)
+  - SkyFloatingLabelTextField (3.2.0)
+  - Stripe (11.2.0)
+  - SwiftyJSON (3.1.4)
+
+DEPENDENCIES:
+  - Alamofire
+  - AlamofireImage (~> 3.1)
+  - CountryPickerSwift
+  - LGSideMenuController
+  - SinchVerification-Swift
+  - SkyFloatingLabelTextField (~> 3.0)
+  - Stripe
+  - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
+  AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
+  CountryPickerSwift: e31e67f2b95eb1fa6ad230e9eb0b49b020526d99
+  LGSideMenuController: ae40c80983ab8b8801c7cef0a6804d43aaa72d45
+  SinchVerification-Swift: e74bb3c09c3e02e6711d1e962ac56ae0239dabe0
+  SkyFloatingLabelTextField: 4e2d2f7160af660ed1da6bb9d0027b5c474b4b79
+  Stripe: 898f83a95d72180c6eb4acd65b2ae6158fc6a8bd
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+
+PODFILE CHECKSUM: 50ce6c648f48847b310b08710df653b5edc6efbc
+
+COCOAPODS: 1.1.1

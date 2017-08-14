@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Buttons</key>
+	<dict>
+		<key>Error</key>
+		<string>שגיאה</string>
+		<key>OK</key>
+		<string>אישור</string>
+		<key>Delete</key>
+		<string>מחיקה</string>
+		<key>Cancel</key>
+		<string>ביטול</string>
+		<key>Update</key>
+		<string>עדכן</string>
+	</dict>
+	<key>Menu</key>
+	<dict>
+		<key>Restaurants</key>
+		<string>מסעדות</string>
+		<key>Tray</key>
+		<string>מגש</string>
+		<key>Orders</key>
+		<string>הזמנה</string>
+		<key>Settings</key>
+		<string>הגדרות</string>
+	</dict>
+	<key>Restaurants</key>
+	<dict>
+		<key>RestaurantsTitle</key>
+		<string>מסעדות</string>
+		<key>Search Restaurant</key>
+		<string>חפש מסעדה</string>
+	</dict>
+	<key>Items</key>
+	<dict>
+		<key>Search item</key>
+		<string>חפש מוצר</string>
+		<key>View Tray</key>
+		<string>עבור לסיכום הזמנה</string>
+	</dict>
+	<key>Item Details</key>
+	<dict>
+		<key>Item Details</key>
+		<string>פרטי מוצר</string>
+		<key>Add To Tray</key>
+		<string>הוסף להזמנה</string>
+	</dict>
+	<key>Tray</key>
+	<dict>
+		<key>Floor</key>
+		<string>קומה:</string>
+		<key>Apartment</key>
+		<string>דירה:</string>
+		<key>Delete Item</key>
+		<string>למחוק מוצר?</string>
+		<key>Delete Message</key>
+		<string>מוצר זה יימחק המרשימה</string>
+		<key>Empty Tray</key>
+		<string>ההזמנה ריקה. בבקשה עבור למסעדה להזמנה</string>
+		<key>Place Order</key>
+		<string>הזמן</string>
+		<key>Tray</key>
+		<string>סיכום הזמנה</string>
+		<key>Delivery Notes</key>
+		<string>הוספת הערות למשלוח</string>
+		<key>Restaurants Notes</key>
+		<string>הוספת הערות למסעדה</string>
+		<key>Subtotal</key>
+		<string>סיכום ביניים</string>
+		<key>Total</key>
+		<string>סכום כולל</string>
+		<key>Add Payment</key>
+		<string>הוספת תשלום</string>
+		<key>Delivery Fee</key>
+		<string>דמי משלוח</string>
+		<key>Change</key>
+		<string>שינוי</string>
+	</dict>
+	<key>Order</key>
+	<dict>
+		<key>Go to order</key>
+		<string>Go to order</string>
+		<key>Open Order Message</key>
+		<string>Your current order isn&apos;t completed!</string>
+		<key>Open Order Exist</key>
+		<string>Open Order Exist</string>
+		<key>DRI</key>
+		<string>נהג</string>
+		<key>Order Status</key>
+		<string>סטאטוס הזמנה:</string>
+		<key>You</key>
+		<string>אתה</string>
+		<key>ON  THE WAY</key>
+		<string>בדרך אליך</string>
+	</dict>
+	<key>Payment</key>
+	<dict>
+		<key>Delete Title</key>
+		<string>לא ניתן למחוק כרטיס בודד</string>
+		<key>Delete Message</key>
+		<string>חייב להיות כרטיס אחד לפחות במערכת</string>
+	</dict>
+	<key>Settings</key>
+	<dict>
+		<key>Apartment</key>
+		<string>מספר דירה</string>
+		<key>Floor</key>
+		<string>קומה</string>
+		<key>Address</key>
+		<string>כתובת</string>
+		<key>Change Title</key>
+		<string>שינוי כתובת</string>
+		<key>Change Message</key>
+		<string>בבקשה מלא את השדות</string>
+		<key>Change</key>
+		<string>שינוי</string>
+	</dict>
+</dict>
+</plist>

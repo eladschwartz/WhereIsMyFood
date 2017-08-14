@@ -1,0 +1,189 @@
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "1Pf-I3-T0t"; */
+"1Pf-I3-T0t.text" = "Detail";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "2BO-vw-Ybk"; */
+"2BO-vw-Ybk.text" = "Detail";
+
+/* Class = "UINavigationItem"; title = "Menu"; ObjectID = "4n4-hW-Syp"; */
+"4n4-hW-Syp.title" = "Menu";
+
+/* Class = "UILabel"; text = "Grass fed beef, American cheese"; ObjectID = "5Na-wV-0Cw"; */
+"5Na-wV-0Cw.text" = "Grass fed beef, American cheese";
+
+/* Class = "UITextField"; placeholder = "Enter Code"; ObjectID = "5oU-lx-Wmd"; */
+"5oU-lx-Wmd.placeholder" = "Enter Code";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "7Z7-cP-880"; */
+"7Z7-cP-880.normalTitle" = "Save";
+
+/* Class = "UILabel"; text = "Restaurant Name"; ObjectID = "9pR-Wa-vfu"; */
+"9pR-Wa-vfu.text" = "Restaurant Name";
+
+/* Class = "UILabel"; text = "Add a note(extra napkins, extra sauce..)"; ObjectID = "An6-iT-Un0"; */
+"An6-iT-Un0.text" = "Add a note(extra napkins, extra sauce..)";
+
+/* Class = "UINavigationItem"; title = "Payment"; ObjectID = "Bat-QB-6zl"; */
+"Bat-QB-6zl.title" = "Payment";
+
+/* Class = "UIButton"; normalTitle = "Verfiy"; ObjectID = "C6R-Or-zu1"; */
+"C6R-Or-zu1.normalTitle" = "Verfiy";
+
+/* Class = "UITextField"; placeholder = "Enter Apartment Number"; ObjectID = "CWc-hI-YiP"; */
+"CWc-hI-YiP.placeholder" = "Enter Apartment Number";
+
+/* Class = "UILabel"; text = "Tray"; ObjectID = "D56-cK-J5l"; */
+"D56-cK-J5l.text" = "Tray";
+
+/* Class = "UILabel"; text = "On The Way"; ObjectID = "Dgm-5G-B1y"; */
+"Dgm-5G-B1y.text" = "On The Way";
+
+/* Class = "UIButton"; normalTitle = "Add Payment"; ObjectID = "DoT-1p-2d2"; */
+"DoT-1p-2d2.normalTitle" = "Add Payment";
+
+/* Class = "UILabel"; text = "Resturant"; ObjectID = "Hmt-tk-v7y"; */
+"Hmt-tk-v7y.text" = "Resturant";
+
+/* Class = "UINavigationItem"; title = "Details"; ObjectID = "I0N-wK-CHE"; */
+"I0N-wK-CHE.title" = "Details";
+
+/* Class = "UILabel"; text = "Add delivery note..."; ObjectID = "Iac-jD-aAg"; */
+"Iac-jD-aAg.text" = "Add delivery note...";
+
+/* Class = "UINavigationItem"; title = "Restaurants"; ObjectID = "JK1-fw-J9q"; */
+"JK1-fw-J9q.title" = "Restaurants";
+
+/* Class = "UILabel"; text = "Item Name"; ObjectID = "Ji7-I8-ud3"; */
+"Ji7-I8-ud3.text" = "Item Name";
+
+/* Class = "UILabel"; text = "Settings"; ObjectID = "KNy-ax-E77"; */
+"KNy-ax-E77.text" = "Settings";
+
+/* Class = "UINavigationItem"; title = "Item Details"; ObjectID = "LXJ-sM-jGu"; */
+"LXJ-sM-jGu.title" = "Item Details";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "Lbo-3N-6er"; */
+"Lbo-3N-6er.title" = "Settings";
+
+/* Class = "UINavigationItem"; title = "Choose Credit Card"; ObjectID = "OoM-5G-CIu"; */
+"OoM-5G-CIu.title" = "Choose Credit Card";
+
+/* Class = "UILabel"; text = "Price"; ObjectID = "Q9t-a7-lRi"; */
+"Q9t-a7-lRi.text" = "Price";
+
+/* Class = "UILabel"; text = "Change"; ObjectID = "So8-Ry-6la"; */
+"So8-Ry-6la.text" = "Change";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "SxS-QX-iXn"; */
+"SxS-QX-iXn.text" = "Detail";
+
+/* Class = "UILabel"; text = "$20.00"; ObjectID = "TbD-Dz-kiB"; */
+"TbD-Dz-kiB.text" = "$20.00";
+
+/* Class = "UILabel"; text = "$10.00"; ObjectID = "UsJ-wG-lN0"; */
+"UsJ-wG-lN0.text" = "$10.00";
+
+/* Class = "UILabel"; text = "Item Addon"; ObjectID = "VYH-08-U69"; */
+"VYH-08-U69.text" = "Item Addon";
+
+/* Class = "UILabel"; text = "$20.00"; ObjectID = "Vce-2B-Wht"; */
+"Vce-2B-Wht.text" = "$20.00";
+
+/* Class = "UITextField"; placeholder = "Enter Email"; ObjectID = "VmU-ar-aNv"; */
+"VmU-ar-aNv.placeholder" = "Enter Email";
+
+/* Class = "UIButton"; normalTitle = "Resend Code"; ObjectID = "Vnv-DW-aRV"; */
+"Vnv-DW-aRV.normalTitle" = "Resend Code";
+
+/* Class = "UILabel"; text = "Add Payment"; ObjectID = "WOd-fu-8Ka"; */
+"WOd-fu-8Ka.text" = "Add Payment";
+
+/* Class = "UILabel"; text = "Address"; ObjectID = "Zdd-zy-l9n"; */
+"Zdd-zy-l9n.text" = "Address";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "b59-Pl-Vtx"; */
+"b59-Pl-Vtx.text" = "Title";
+
+/* Class = "UILabel"; text = "Order"; ObjectID = "bLc-AK-ayO"; */
+"bLc-AK-ayO.text" = "Order";
+
+/* Class = "UIBarButtonItem"; title = "Done"; ObjectID = "bYy-lR-4ay"; */
+"bYy-lR-4ay.title" = "Done";
+
+/* Class = "UITextField"; placeholder = "Enter Address"; ObjectID = "db3-Al-hFP"; */
+"db3-Al-hFP.placeholder" = "Enter Address";
+
+/* Class = "UILabel"; text = "$12.00"; ObjectID = "eFd-Bc-rjK"; */
+"eFd-Bc-rjK.text" = "$12.00";
+
+/* Class = "UILabel"; text = "Phone"; ObjectID = "eTU-TJ-jsA"; */
+"eTU-TJ-jsA.text" = "Phone";
+
+/* Class = "UISearchBar"; placeholder = "Search restaurant"; ObjectID = "f2p-GL-aDu"; */
+"f2p-GL-aDu.placeholder" = "Search restaurant";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "fM1-w8-cpD"; */
+"fM1-w8-cpD.text" = "Title";
+
+/* Class = "UILabel"; text = "Address"; ObjectID = "fpz-6l-8Hr"; */
+"fpz-6l-8Hr.text" = "Address";
+
+/* Class = "UITextField"; placeholder = "Enter Phone Number"; ObjectID = "geR-V4-sTJ"; */
+"geR-V4-sTJ.placeholder" = "Enter Phone Number";
+
+/* Class = "UIButton"; normalTitle = "Change Phone Number"; ObjectID = "gpG-jJ-jD6"; */
+"gpG-jJ-jD6.normalTitle" = "Change Phone Number";
+
+/* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "hAZ-h8-CCH"; */
+"hAZ-h8-CCH.title" = "Cancel";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "hvP-xk-OcI"; */
+"hvP-xk-OcI.text" = "Name";
+
+/* Class = "UISearchBar"; placeholder = "Search restaurant"; ObjectID = "iDb-9D-B47"; */
+"iDb-9D-B47.placeholder" = "Search restaurant";
+
+/* Class = "UITextField"; placeholder = "Enter Name"; ObjectID = "iQi-ba-Sp9"; */
+"iQi-ba-Sp9.placeholder" = "Enter Name";
+
+/* Class = "UIButton"; normalTitle = "Add To Tray"; ObjectID = "ikU-iP-aeX"; */
+"ikU-iP-aeX.normalTitle" = "Add To Tray";
+
+/* Class = "UIButton"; normalTitle = "+"; ObjectID = "k6V-La-RLe"; */
+"k6V-La-RLe.normalTitle" = "+";
+
+/* Class = "UIButton"; normalTitle = "-"; ObjectID = "kFB-mi-6YI"; */
+"kFB-mi-6YI.normalTitle" = "-";
+
+/* Class = "UILabel"; text = "123 6th St. \nMelbourne, FL 32904"; ObjectID = "kaJ-40-kWL"; */
+"kaJ-40-kWL.text" = "123 6th St. \nMelbourne, FL 32904";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "kqR-50-9h1"; */
+"kqR-50-9h1.text" = "Title";
+
+/* Class = "UILabel"; text = "1"; ObjectID = "l3h-Hz-RHQ"; */
+"l3h-Hz-RHQ.text" = "1";
+
+/* Class = "UIButton"; normalTitle = "Continue"; ObjectID = "lN7-VQ-ub3"; */
+"lN7-VQ-ub3.normalTitle" = "Continue";
+
+/* Class = "UITextField"; placeholder = "Enter Floor Number"; ObjectID = "m3Q-PJ-HDc"; */
+"m3Q-PJ-HDc.placeholder" = "Enter Floor Number";
+
+/* Class = "UILabel"; text = "Change"; ObjectID = "m6e-ZG-cLN"; */
+"m6e-ZG-cLN.text" = "Change";
+
+/* Class = "UINavigationItem"; title = "Customer Details"; ObjectID = "met-T4-OQx"; */
+"met-T4-OQx.title" = "Customer Details";
+
+/* Class = "UILabel"; text = "1"; ObjectID = "rqd-AU-2UL"; */
+"rqd-AU-2UL.text" = "1";
+
+/* Class = "UILabel"; text = "Burger King"; ObjectID = "sPm-N1-MVV"; */
+"sPm-N1-MVV.text" = "Burger King";
+
+/* Class = "UINavigationItem"; title = "Tray"; ObjectID = "vKj-Pv-V3H"; */
+"vKj-Pv-V3H.title" = "Tray";
+
+/* Class = "UIButton"; normalTitle = "View Tray"; ObjectID = "y4n-cz-JXR"; */
+"y4n-cz-JXR.normalTitle" = "View Tray";
