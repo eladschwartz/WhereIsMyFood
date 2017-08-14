@@ -1,6 +1,6 @@
 //
 //  EnterCodeVC.swift
-//  BringMyFood
+//  WhereIsMyFood
 //
 //  Created by elad schwartz on 27/04/2017.
 //  Copyright © 2017 elad schwartz. All rights reserved.
@@ -78,11 +78,11 @@ class EnterCodeVC: UIViewController, UITextFieldDelegate {
     
     //Disable the UI with delay after the user click on the send button so the user won't click again
     func disableUI(_ disable: Bool) {
-        var alpha:CGFloat = 1.0;
+        var alpha:CGFloat = 1.0
         if (disable) {
-            alpha = 0.5;
-            codeText.resignFirstResponder();
-            spinner.startAnimating();
+            alpha = 0.5
+            codeText.resignFirstResponder()
+            spinner.startAnimating()
             let delayTime =
                 DispatchTime.now() +
                     Double(Int64(30 * Double(NSEC_PER_SEC)))
@@ -90,18 +90,18 @@ class EnterCodeVC: UIViewController, UITextFieldDelegate {
             DispatchQueue.main.asyncAfter(
                 deadline: delayTime, execute:
                 { () -> Void in
-                    self.disableUI(false);
-            });
+                    self.disableUI(false)
+            })
         }
         else {
-            self.codeText.becomeFirstResponder();
-            self.spinner.stopAnimating();
+            self.codeText.becomeFirstResponder()
+            self.spinner.stopAnimating()
             
         }
         //Change controls visibility
         self.codeText.isEnabled = !disable
         self.verifyBtn.isEnabled = !disable
-        self.verifyBtn.alpha = alpha;
+        self.verifyBtn.alpha = alpha
         self.resendCodeBtn.isEnabled = !disable
         self.resendCodeBtn.alpha = alpha
         self.changePhoneBtn.isEnabled = !disable

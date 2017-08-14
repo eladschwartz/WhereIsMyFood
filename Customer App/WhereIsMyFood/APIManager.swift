@@ -1,10 +1,10 @@
-//
-//  APIManager.swift
-//  BringMyFood
-//
-//  Created by elad schwartz on 19/04/2017.
-//  Copyright © 2017 elad schwartz. All rights reserved.
-//
+// 
+//   APIManager.swift
+//   WhereIsMyFood
+// 
+//   Created by elad schwartz on 19/04/2017.
+//   Copyright © 2017 elad schwartz. All rights reserved.
+// 
 
 import Foundation
 import SwiftyJSON
@@ -16,12 +16,12 @@ class APIManager {
     static let shared = APIManager()
     let baseURL = NSURL(string: Config.BASE_URL)
     let imageCache = AutoPurgingImageCache()
-    var httpHeaders = [String: String]() //headers parameter for sending  token
+    var httpHeaders = [String: String]() // headers parameter for sending  token
     
     init() {}
     
     
-    //Master function fore seding request
+    // Master function fore seding request
     func requestServer(_ method: HTTPMethod,_ path: String,_ params: [String: Any]?,_ encoding: ParameterEncoding,_ completionHandler: @escaping (JSON) -> Void ) {
         let url = self.baseURL?.appendingPathComponent(path)
         if let token = User.shared.token {
@@ -44,7 +44,7 @@ class APIManager {
     }
     
     
-    //Get image from server
+    // Get image from server
     func loadImage(itemName: String, itemId: Int, imgUrl: URL,_ completionHandler: @escaping (UIImage) -> Void) {
         let imageIdentfier = itemName + "-" + String(itemId)
         
@@ -68,7 +68,7 @@ class APIManager {
         }
     }
     
-    //Get Settings
+    // Get Settings
     func isSingleBranch(completionHandler: @escaping (JSON) -> Void){
         let path = "Api/get_is_single_branch/"
         requestServer(.get, path, nil, URLEncoding(), completionHandler)
@@ -80,9 +80,9 @@ class APIManager {
     }
     
     
-    // ---------- Customers ------- //
+    //   ---------- Customers ------- // 
     
-    //Save Customer details
+    //  Save Customer details
     func saveUserDetailsToDB(name: String, email: String, phone: String,address: Address , completionHandler: @escaping (JSON) -> Void) {
         let path = "Api/save_user/"
         if let uid = UIDevice.current.identifierForVendor?.uuidString {
@@ -103,7 +103,7 @@ class APIManager {
         }
     }
     
-    //Update Customer details
+    // Update Customer details
     func updateUserDetails(name: String, email: String, phone: String,address: Address , completionHandler: @escaping (JSON) -> Void) {
         let path = "Api/update_user/"
         let parameters: Parameters = [
@@ -125,7 +125,7 @@ class APIManager {
     
     
     
-    //Check if customer is already in DB
+    // Check if customer is already in DB
     func isCustomerExist(phone: String, completionHandler: @escaping (JSON) -> Void) {
         let parameters: Parameters = [
             "phone": phone
@@ -135,7 +135,7 @@ class APIManager {
         requestServer(.get, path, parameters, URLEncoding(), completionHandler)
     }
     
-    //Get customer details
+    // Get customer details
     func getCustomerDetails(phone: String, completionHandler: @escaping (JSON) -> Void) {
         let parameters: Parameters = [
             "phone": phone
@@ -145,7 +145,7 @@ class APIManager {
         requestServer(.get, path, parameters, URLEncoding(), completionHandler)
     }
     
-    //Get customer details and create the User object
+    // Get customer details and create the User object
     func getDetailsAndSave(phone: String, completionHandler: @escaping (JSON) -> Void) {
         self.getCustomerDetails(phone: phone) { (json) in
             guard let id = json[0]["id"].string,
@@ -180,7 +180,7 @@ class APIManager {
     }
     
     
-    //Check if customer has already entered credit card before
+    // Check if customer has already entered credit card before
     func isCustomerStripe(completionHandler: @escaping (JSON) -> Void) {
         let parameters: Parameters = [
             "customer_id": User.shared.id ?? ""
@@ -191,7 +191,7 @@ class APIManager {
         
     }
     
-    //Get all credit cards for a customer
+    // Get all credit cards for a customer
     func getCreditCards(completionHandler: @escaping (JSON) -> Void) {
         let parameters: Parameters = [
             "customer_id": User.shared.id ?? ""
@@ -201,7 +201,7 @@ class APIManager {
         requestServer(.post, path, parameters, URLEncoding(), completionHandler)
     }
     
-    //Delete a single credit card from saved card
+    // Delete a single credit card from saved card
     func deleteCreditCard(cardId: String, completionHandler: @escaping (JSON) -> Void) {
         let parameters: Parameters = [
             "card_id": cardId,
@@ -211,7 +211,7 @@ class APIManager {
         requestServer(.post, path, parameters, URLEncoding(), completionHandler)
     }
     
-    //Delete stripe cards informaion
+    // Delete stripe cards informaion
     func deleteStripeCard(customerId: String, completionHandler: @escaping (JSON) -> Void) {
         let parameters: Parameters = [
             "customer_id":customerId,
@@ -236,66 +236,66 @@ class APIManager {
         
     }
     
-    // ---------- END - Customers ------- //
+    //  ---------- END - Customers ------- // 
     
     
     
-    // ---------- Restaurants ------- //
+    //  ---------- Restaurants ------- // 
     
-    //Get Resturant List
+    // Get Resturant List
     func getRestaurants(completionHandler: @escaping (JSON) -> Void){
         let path = "Api/get_restaurants/"
         requestServer(.get, path, nil, URLEncoding(), completionHandler)
     }
     
-    //Get a single restaurant
+    // Get a single restaurant
     func getRestaurant(completionHandler: @escaping (JSON) -> Void){
         let path = "Api/get_restaurant/"
         requestServer(.get, path, nil, URLEncoding(), completionHandler)
     }
     
     
-    //Get Items List
+    // Get Items List
     func getItems(restaurant_id: Int, category_id: Int, completionHandler: @escaping (JSON) -> Void){
         let parameters: Parameters = ["restaurant_id": restaurant_id, "category_id": category_id]
         let path = "Api/get_menu_items/"
         requestServer(.get, path, parameters, URLEncoding(), completionHandler)
     }
-    //Get all addons for an item
+    // Get all addons for an item
     func getAddons(id: Int, completionHandler: @escaping (JSON) -> Void){
         let parameters: Parameters = ["id": id]
         let path = "Api/get_addons_by_item/"
         requestServer(.get, path, parameters, URLEncoding(), completionHandler)
     }
-    //Get single section by id
+    // Get single section by id
     func getSection(id: Int, completionHandler: @escaping (JSON) -> Void){
         let parameters: Parameters = ["id": id]
         let path = "Api/get_section_by_id/"
         requestServer(.get, path, parameters, URLEncoding(), completionHandler)
     }
-    //Get all the sections for an item
+    // Get all the sections for an item
     func getSections(id: Int, completionHandler: @escaping (JSON) -> Void){
         let parameters: Parameters = ["id": id]
         let path = "Api/get_sections_by_item/"
         requestServer(.get, path, parameters, URLEncoding(), completionHandler)
     }
     
-    //Get all the catgeories for a restaurant
+    // Get all the catgeories for a restaurant
     func getItemsCategories(completionHandler: @escaping (JSON) -> Void){
         let path = "Api/get_menu_items_categories/"
         requestServer(.get, path, nil, URLEncoding(), completionHandler)
     }
     
-    // ---------- END - Restaurants ------- //
+    //  ---------- END - Restaurants ------- // 
     
-    // ---------- Orders ------- //
+    //  ---------- Orders ------- // 
     
-    //Create and order
+    // Create and order
     func createOrder(stripeToken: String, isNewCard: Bool, last4Digits: String, completionHandler: @escaping (JSON) -> Void){
         let itemsarr = Tray.currentTray.items
         var jsonarr = [[String : Any]]()
         
-        //Loop all items in tray and for each item get the addons selcted and insert to a dict
+        // Loop all items in tray and for each item get the addons selcted and insert to a dict
         for i in 0 ..< itemsarr.count {
             let trayItem = itemsarr[i]
             var addonsDict = [[String : String]]()
@@ -317,7 +317,7 @@ class APIManager {
             jsonarr[i]["addons"] = addonsDict
         }
         
-        //Convert the dict to a json object and send to the server
+        // Convert the dict to a json object and send to the server
         if JSONSerialization.isValidJSONObject(jsonarr) {
             do {
                 let data = try JSONSerialization.data(withJSONObject: jsonarr, options: [])
@@ -351,7 +351,7 @@ class APIManager {
         }
     }
     
-    //Getting the latest order (Customer)
+    // Getting the latest order (Customer)
     func getLatestOrder(completionHandler: @escaping (JSON) -> Void) {
         let path = "Api/get_last_order"
         let params: [String: Any] = [
@@ -360,7 +360,7 @@ class APIManager {
         requestServer(.get, path, params, URLEncoding(), completionHandler)
     }
     
-    //Check if there is already an open order
+    // Check if there is already an open order
     func ifOrderExist(completionHandler: @escaping (JSON) -> Void) {
         let path = "Api/if_order_exist"
         let params: [String: Any] = [
@@ -369,7 +369,7 @@ class APIManager {
         requestServer(.get, path, params, URLEncoding(), completionHandler)
     }
     
-    //Get driver location
+    // Get driver location
     func getDriverLocation(completionHandler: @escaping (JSON) -> Void) {
         let path = "Api/get_driver_location"
         let params: [String: Any] = [
@@ -378,7 +378,7 @@ class APIManager {
         requestServer(.get, path, params, URLEncoding(), completionHandler)
     }
     
-    //Check if driver chose our order for delivery
+    // Check if driver chose our order for delivery
     func isActiveOrder(completionHandler: @escaping (JSON) -> Void) {
         let path = "Api/is_active_order"
         let params: [String: Any] = [
@@ -387,6 +387,6 @@ class APIManager {
         requestServer(.get, path, params, URLEncoding(), completionHandler)
     }
     
-    // ---------- END - Orders ------- //
+    //  ---------- END - Orders ------- // 
     
 }

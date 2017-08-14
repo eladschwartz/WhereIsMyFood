@@ -1,6 +1,6 @@
 //
 //  MealCell.swift
-//  BringMyFood
+//  WhereIsMyFood
 //
 //  Created by elad schwartz on 29/04/2017.
 //  Copyright © 2017 elad schwartz. All rights reserved.
@@ -39,10 +39,10 @@ class ItemCell: UITableViewCell {
         self.priceLbl.text = "\(Config.CURRENCY_SIGN)\(itemPrice)"
         self.discriptionLbl.text = itemDescription
         if let imageUrl = item.imageUrl {
-            if (imageUrl != "UPLOAD IMAGE"){
+            if (imageUrl != "UPLOAD IMAGE") {
                 let url = URL(string: imageUrl)!
                 APIManager.shared.loadImage(itemName: itemName, itemId: itemId, imgUrl: url, { (image) in
-                    DispatchQueue.main.async(){
+                    DispatchQueue.main.async() {
                         self.itemImage.image = image
                         self.itemImage.setRounded()
                     }

@@ -1,10 +1,9 @@
-//
+// 
 //  ItemDetailsViewContainer.swift
-//  BringMyFood
-//
+// 
 //  Created by elad schwartz on 28/05/2017.
 //  Copyright © 2017 elad schwartz. All rights reserved.
-//
+// 
 
 import UIKit
 import SwiftyJSON
@@ -32,10 +31,10 @@ class ItemDetailsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.separatorColor = UIColor.clear
-        //hide table and set row height
+        //  hide table and set row height
         self.tableView.isHidden = true
         tableView.rowHeight = UITableViewAutomaticDimension
-        //If we not in edit mode load all sections of the item
+        // If we not in edit mode load all sections of the item
         if (!isEditMode) {
             guard let itemPrice = item?.price else {
                 
@@ -49,7 +48,7 @@ class ItemDetailsVC: UIViewController {
             activityIndicator = Helpers.showActivityIndicator(view: self.view)
             loadSections()
         } else {
-            //In edit mode we already have all the item sections, just load the table
+            // In edit mode we already have all the item sections, just load the table
             if let price = totalForItem[itemIndex] {
                 self.priceLbl.text = "\(price)"
                 self.currentTotal = price
@@ -61,7 +60,7 @@ class ItemDetailsVC: UIViewController {
         
         
         
-        //If User is in edit mode, change title of button to Update
+        // If User is in edit mode, change title of button to Update
         if (isEditMode) {
             self.cartBtn.image = nil
             self.cartBtn.title = "Update"
@@ -69,9 +68,9 @@ class ItemDetailsVC: UIViewController {
     }
     
     
-    //Loading all the sections and all addons per section
+    // Loading all the sections and all addons per section
     func loadSections() {
-        //clear addons array
+        // clear addons array
         self.item.addons = [Addon]()
         self.item.sections = [Section]()
         
@@ -79,9 +78,9 @@ class ItemDetailsVC: UIViewController {
             self.item.addonsSelected = [Addon]()
         }
         
-        //Get all section for this item
+        // Get all section for this item
         APIManager.shared.getSections(id:(self.item.id)!) { (json) in
-            //Create Default sections for: item image, item name, item description
+            // Create Default sections for: item image, item name, item description
             let sec1 = Section(name: "")
             let sec2 = Section(name: "")
             let sec3 = Section(name: "")
@@ -89,7 +88,7 @@ class ItemDetailsVC: UIViewController {
             self.item.sections.insert(sec2, at: 1)
             self.item.sections.insert(sec3, at: 2)
             if (json != JSON.null) {
-                //Loop over all the sections and put in sections array
+                // Loop over all the sections and put in sections array
                 for section in json.array!{
                     guard let sectionId =  Int(section["section_id"].string!),
                         let sectionName = section["section_name"].string,
@@ -100,7 +99,7 @@ class ItemDetailsVC: UIViewController {
                     let section = Section(sectionId: sectionId,sectionType: sectionType, sectionName: sectionName, isRequired: isRequired)
                     self.item.sections.append(section)
                 }
-                //get all addons for this item and assign them to the correct sections
+                // get all addons for this item and assign them to the correct sections
                 APIManager.shared.getAddons(id:(self.item.id)!) { (json) in
                     if (json != JSON.null) {
                         for addon in json.array!{
@@ -111,18 +110,18 @@ class ItemDetailsVC: UIViewController {
                                 let sectionId = Int(addon["section_id"].string!) else {
                                     return
                             }
-                            //some addons doesn't have a price
+                            // some addons doesn't have a price
                             var addonPrice = addon["price"].string
                             if ( addonPrice == nil) {
                                 addonPrice = ""
                             }
-                            //Create new addon, search for the section in the array and add the addon to his section
-                            //
+                            // Create new addon, search for the section in the array and add the addon to his section
+                            // 
                             let addon = Addon(id: addonID,addonDetailId:addonDetailId, name: addonName, itemId: String(describing: self.item.id!) ,sectionName:sectionName ,sectionId: sectionId, price: addonPrice!)
                             self.item.addons.append(addon)
-                            let isSectionExist = self.item.sections.filter{$0.id == addon.sectionId}.count > 0
+                            let isSectionExist = self.item.sections.filter{ $0.id == addon.sectionId }.count > 0
                             if (isSectionExist) {
-                                let sectionObj = self.item.sections.filter({$0.id == addon.sectionId}).first
+                                let sectionObj = self.item.sections.filter({ $0.id == addon.sectionId }).first
                                 sectionObj?.addToDetails(addon:addon)
                             }
                         }
@@ -144,7 +143,7 @@ class ItemDetailsVC: UIViewController {
         
     }
     
-    //In Edit Mode - loop over all the selcted addons and change the checkbox image to checked
+    // In Edit Mode - loop over all the selcted addons and change the checkbox image to checked
     func checkSelctedAddons() {
         for section in self.item.sections {
             for i in 0 ..< section.details.count {
@@ -159,7 +158,7 @@ class ItemDetailsVC: UIViewController {
     }
     
     
-    //If section is required - add the first detail to the array as defualt
+    // If section is required - add the first detail to the array as defualt
     func addRrequiredToArray() {
         let sections = self.item.sections
         for section in sections {
@@ -172,19 +171,19 @@ class ItemDetailsVC: UIViewController {
     
     
     
-    //Add item to the tray
+    // Add item to the tray
     @IBAction func addToTrayTapped(_ sender: Any) {
-        //Get embeded table view controller
-        //If user want to change something in the item
+        // Get embeded table view controller
+        // If user want to change something in the item
         if (isEditMode){
             let trayItem = TrayItem(item: self.item, qty: self.qty)
             Tray.currentTray.items[self.itemIndex] = trayItem
             self.performSegue(withIdentifier: "unwindToTrayFromEdit", sender: self)
         } else {
-            //Add new item to tray
+            // Add new item to tray
             let trayItem = TrayItem(item: self.item, qty: self.qty)
             guard let trayRestaurant = Tray.currentTray.restaurant, let currentRestaurant = self.restaurant else {
-                // If those requirements are not met
+                //  If those requirements are not met
                 Tray.currentTray.restaurant = self.restaurant
                 Tray.currentTray.items.append(trayItem)
                 
@@ -192,12 +191,12 @@ class ItemDetailsVC: UIViewController {
                 return
             }
             
-            // If ordering meal from the same restaurant
+            //  If ordering meal from the same restaurant
             if trayRestaurant.id == currentRestaurant.id {
                 Tray.currentTray.items.append(trayItem)
                 self.performSegue(withIdentifier: "unwindToItemList", sender: self)
             }
-            else {// If ordering meal from the another restaurant
+            else {//  If ordering meal from the another restaurant
                 
                 let alertView = UIAlertController(
                     title: "Start new tray?",
@@ -220,7 +219,7 @@ class ItemDetailsVC: UIViewController {
     }
     
     
-    //Add 1 to current qty
+    // Add 1 to current qty
     @IBAction func plusButtonTapped(_ sender: Any) {
         
         self.qty += 1
@@ -228,7 +227,7 @@ class ItemDetailsVC: UIViewController {
         self.qtyLbl.text =  String(self.qty)
     }
     
-    //Substract 1 from current qty
+    // Substract 1 from current qty
     @IBAction func minusButtonTapped(_ sender: Any) {
         if (self.qty >= 2) {
             self.qty -= 1
@@ -281,7 +280,7 @@ extension ItemDetailsVC: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    //Save the cell height so that later when table reloads will not jump back to top
+    // Save the cell height so that later when table reloads will not jump back to top
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.section != 0 {
             cellHeights[indexPath] = cell.frame.size.height
@@ -299,12 +298,12 @@ extension ItemDetailsVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
-        //Item Image
+        // Item Image
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ItemImageCell", for: indexPath) as! ItemImageCell
             cell.itemImage.image = self.itemImage
             return cell
-        //Item Name
+        // Item Name
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ItemNameCell", for: indexPath)
             cell.textLabel?.textAlignment = .center
@@ -312,7 +311,7 @@ extension ItemDetailsVC: UITableViewDelegate, UITableViewDataSource {
             cell.textLabel?.font = UIFont(name:"Raleway", size: 17)
             cell.textLabel?.textColor = UIColor(red:0.97, green:0.72, blue:0.39, alpha:1.0)
             return cell
-        //Item Description
+        // Item Description
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ItemDescriptionCell", for: indexPath)
             cell.textLabel?.textAlignment = .center
@@ -322,7 +321,7 @@ extension ItemDetailsVC: UITableViewDelegate, UITableViewDataSource {
             cell.textLabel?.font = UIFont(name:"Raleway", size: 17)
             cell.textLabel?.textColor = UIColor(red:0.97, green:0.72, blue:0.39, alpha:1.0)
             return cell
-        //Item Addons Information
+        // Item Addons Information
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ItemDetailsCell", for: indexPath) as! ItemDetailsCell
             let section = self.item.sections[indexPath.section]
@@ -349,7 +348,7 @@ extension ItemDetailsVC: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //if user click on a addon in details section(0,1,2 are the image, name of item and the description = not clickable)
+        // if user click on a addon in details section(0,1,2 are the image, name of item and the description = not clickable)
         if (indexPath.section > 2) {
             let clickedcell = tableView.cellForRow(at: indexPath ) as! ItemDetailsCell
             cellClicked(clickedcell: clickedcell, indexPath: indexPath )
@@ -376,7 +375,7 @@ extension ItemDetailsVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
     {
         switch section {
-        //Don't show section title for the first 3 sections
+        // Don't show section title for the first 3 sections
         case 0, 1, 2:
             return 0
         default:
@@ -384,7 +383,7 @@ extension ItemDetailsVC: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    //Click on a addon in addons sections
+    // Click on a addon in addons sections
     func cellClicked(clickedcell: ItemDetailsCell, indexPath: IndexPath) {
         let isChecked = self.item.sections[indexPath.section].details[indexPath.row].isChecked
         let isRequired = self.item.sections[indexPath.section].isRequired
@@ -396,10 +395,10 @@ extension ItemDetailsVC: UITableViewDelegate, UITableViewDataSource {
         }
         
         switch sectionType {
-        //In this section user can choose multiple addons
+        // In this section user can choose multiple addons
         case .Multi:
             handleMultipleSelection(indexPath: indexPath, isChecked: isChecked, isRequired: isRequired, addon: addon, addonPrice: addonPrice, addonId: addonId)
-        //In this section user can chopse only single addon
+        // In this section user can chopse only single addon
         case .Single:
             handleSingleSelection(indexPath: indexPath, isChecked: isChecked, isRequired: isRequired, addon: addon, addonPrice: addonPrice, addonId: addonId)
         }
@@ -408,20 +407,20 @@ extension ItemDetailsVC: UITableViewDelegate, UITableViewDataSource {
     
     
     func handleMultipleSelection(indexPath: IndexPath, isChecked: Bool, isRequired: Bool, addon: Addon, addonPrice: String, addonId: Int) {
-        //If addon is not selected and user selected it
+        // If addon is not selected and user selected it
         if (!isChecked) {
-            // if addon was selcted - insert addon to our array of selected addons
+            //  if addon was selcted - insert addon to our array of selected addons
             self.item.addonsSelected.append(addon)
             self.item.sections[indexPath.section].details[indexPath.row].isChecked = true
-            // if addon has price -  send notifction to our view container to update the price lable
+            //  if addon has price -  send notifction to our view container to update the price lable
             if (addonPrice != "") {
                 self.priceLbl.text = "\(Config.CURRENCY_SIGN)\(currentTotal + (addonPrice.toDouble() * Double(self.qty)))"
                 currentTotal += addonPrice.toDouble() * Double(self.qty)
             }
             self.tableView.reloadData()
-            //Else - if addon is alreay selected and uesr deselect it
+            // Else - if addon is alreay selected and uesr deselect it
         } else {
-            //find the addon in array and filter it
+            // find the addon in array and filter it
             let newarray =  self.item.addonsSelected.filter{$0.id != addonId}
             self.item.addonsSelected = newarray
             self.item.sections[indexPath.section].details[indexPath.row].isChecked = false
@@ -437,9 +436,9 @@ extension ItemDetailsVC: UITableViewDelegate, UITableViewDataSource {
     
     func handleSingleSelection(indexPath: IndexPath, isChecked: Bool, isRequired: Bool, addon: Addon, addonPrice: String, addonId: Int) {
         let section = self.item.sections[indexPath.section]
-        // if addon is not selected and user selected it
+        //  if addon is not selected and user selected it
         if (!isChecked) {
-            //loop over the section addons and unchecked the other checkboxs
+            // loop over the section addons and unchecked the other checkboxs
             let count = self.item.sections[indexPath.section].details.count
             var index = 0
             var checkedAddonId = 0
@@ -453,20 +452,20 @@ extension ItemDetailsVC: UITableViewDelegate, UITableViewDataSource {
                     }
                     checkedAddonId = addonCheckedId
                     if let price = detail.addon.price {
-                        //if one of the addon we want to remove was previously selcted, substract it's price
+                        // if one of the addon we want to remove was previously selcted, substract it's price
                         if (price != "") {
                             self.priceLbl.text = "\(Config.CURRENCY_SIGN)\(currentTotal - (addonCheckedPrice.toDouble() * Double(self.qty)))"
                             currentTotal -= addonCheckedPrice.toDouble()  * Double(self.qty)
                         }
                     }
-                    //get new array with the new selected addon
+                    // get new array with the new selected addon
                     let newarray =  self.item.addonsSelected.filter{$0.id != addonCheckedId}
                     self.item.addonsSelected = newarray
                 }
                 section.changeChecked(index: i, checked: false)
             }
             if (isRequired) {
-                //remove defualt addon from the array
+                // remove defualt addon from the array
                 let filteredArray =  self.item.addonsSelected.filter{$0.id != checkedAddonId}
                 self.item.addonsSelected = filteredArray
             }
@@ -481,7 +480,7 @@ extension ItemDetailsVC: UITableViewDelegate, UITableViewDataSource {
              self.tableView.reloadData()
             
         } else {
-            //If the section is required don't let user unchecked a checked option
+            // If the section is required don't let user unchecked a checked option
             if (isRequired) {
                 return
             }

@@ -1,6 +1,6 @@
 //
 //  Addon.swift
-//  BringMyFood
+//  WhereIsMyFood
 //
 //  Created by elad schwartz on 06/07/2017.
 //  Copyright © 2017 elad schwartz. All rights reserved.
@@ -26,7 +26,5 @@ class Addon {
         self.sectionName = sectionName
         self.itemId = itemId
         self.addonDetailId = addonDetailId
-      
     }
-    
 }

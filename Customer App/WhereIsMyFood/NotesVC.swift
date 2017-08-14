@@ -21,12 +21,11 @@ class NotesVC: UIViewController {
         super.viewWillAppear(animated)
         self.barTitle.title =  "Notes"
         self.notes.text = Tray.currentTray.restaurantNotes
-    
     }
 
-    
     @IBAction func doneBtnTapped(_ sender: Any) {
         Tray.currentTray.restaurantNotes = self.notes.text
         self.dismiss(animated: true, completion: nil)
     }
+    
 }

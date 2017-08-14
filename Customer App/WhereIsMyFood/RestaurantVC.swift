@@ -1,6 +1,6 @@
 //
 //  RestaurantVC.swift
-//  BringMyFood
+//  WhereIsMyFood
 //
 //  Created by elad schwartz on 17/04/2017.
 //  Copyright © 2017 elad schwartz. All rights reserved.
@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyJSON
 
-class RestaurantVC: UIViewController  {
+class RestaurantVC: UIViewController {
     
     @IBOutlet weak var searchRestaurantBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!

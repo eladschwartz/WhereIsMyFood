@@ -1,6 +1,6 @@
 //
 //  MealDetailCell.swift
-//  BringMyFood
+//  WhereIsMyFood
 //
 //  Created by elad schwartz on 25/05/2017.
 //  Copyright © 2017 elad schwartz. All rights reserved.

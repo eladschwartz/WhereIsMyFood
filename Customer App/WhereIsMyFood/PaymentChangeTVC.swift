@@ -1,6 +1,6 @@
 //
 //  PaymentChangeTVC.swift
-//  BringMyFood
+//  WhereIsMyFood
 //
 //  Created by elad schwartz on 17/07/2017.
 //  Copyright © 2017 elad schwartz. All rights reserved.

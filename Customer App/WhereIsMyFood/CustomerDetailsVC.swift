@@ -1,6 +1,6 @@
 //
 //  CustomerDetailsVC.swift
-//  BringMyFood
+//  WhereIsMyFood
 //
 //  Created by elad schwartz on 27/04/2017.
 //  Copyright © 2017 elad schwartz. All rights reserved.
@@ -189,7 +189,7 @@ class CustomerDetailsVC:  UIViewController, UITextFieldDelegate {
 }
 
 extension UIViewController {
-    func animateViewMoving (up:Bool, moveValue :CGFloat){
+    func animateViewMoving (up:Bool, moveValue :CGFloat) {
         let movementDuration:TimeInterval = 0.3
         let movement:CGFloat = ( up ? -moveValue : moveValue)
         UIView.beginAnimations( "animateView", context: nil)

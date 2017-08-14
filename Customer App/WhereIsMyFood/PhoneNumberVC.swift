@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  BringMyFood
+//  WhereIsMyFood
 //
 //  Created by elad schwartz on 16/04/2017.
 //  Copyright © 2017 elad schwartz. All rights reserved.
@@ -29,7 +29,7 @@ class PhoneNumberVC: UIViewController, UITextFieldDelegate, CountryPickerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         self.phoneText.delegate = self
-        //Hide Keyboard
+        // Hide Keyboard
         self.hideKeyboardWhenTappedAround()
         initControls()
       
@@ -46,14 +46,14 @@ class PhoneNumberVC: UIViewController, UITextFieldDelegate, CountryPickerDelegat
     }
     
     @IBAction func sendSmsBtn(_ sender: Any) {
-        //If customer entered didn't enter phone number don't continue
+        //I f customer entered didn't enter phone number don't continue
         if (self.phoneText.text == "" || self.phoneText.text == nil || self.countryCodeText.text == "" || self.countryCodeText.text == nil) {
             return
         }
         phoneNumber = self.countryCodeText.text! + self.phoneText.text!
 
-        //------------------------------
-        //For DEMO only - remove this in production
+        // ------------------------------
+        // For DEMO only - remove this in production
         if (phoneNumber == "+12") {
             APIManager.shared.getDetailsAndSave(phone: self.phoneNumber){ (json) in
                 Helpers.goToScreen(name: "fromPhoneNumberToResturant", sender: self, viewController: self)
@@ -64,12 +64,12 @@ class PhoneNumberVC: UIViewController, UITextFieldDelegate, CountryPickerDelegat
         
               self.disableUI(true)
         APIManager.shared.isCustomerExist(phone: self.phoneNumber) { (json) in
-            //If the customer is new send a sms and go to the pincode screen
+            // If the customer is new send a sms and go to the pincode screen
             if (json == JSON.null) {
                 //send SMS verifction to the phone
                 self.verification = SMSVerification(Config.SINCH_KEY, phoneNumber: self.phoneNumber)
                 self.verification.initiate { (result: InitiationResult, error:Error?) -> Void in
-                    self.disableUI(false);
+                    self.disableUI(false)
                     if (result.success){
                         Helpers.goToScreen(name: "fromPhoneNumberToPinCode", sender: sender, viewController: self)
                     } else {
@@ -79,7 +79,7 @@ class PhoneNumberVC: UIViewController, UITextFieldDelegate, CountryPickerDelegat
                     }
                 }
             }
-            //if customer exist get uid from DB and compare to app's uid
+            // If customer exist get uid from DB and compare to app's uid
             guard let uid = json[0]["uid"].string else {
                 return
             }
@@ -90,18 +90,18 @@ class PhoneNumberVC: UIViewController, UITextFieldDelegate, CountryPickerDelegat
         
     }
     
-    //Check if customer use the same phone(this code try to deny other users access to the account)
+    // Check if customer use the same phone(this code try to deny other users access to the account)
     func checkUid(uid: String) {
             if (uid == Config.UID) {
                 APIManager.shared.getDetailsAndSave(phone: self.phoneNumber){ (json) in
                     Helpers.goToScreen(name: "fromPhoneNumberToResturant", sender: self, viewController: self)
                 }
-        //2 Cases: 1. User swtich to a new phone. 2. another user try to use another customer number
+        // 2 Cases: 1. User swtich to a new phone. 2. another user try to use another customer number
         } else {
             self.isCustomerExist = true
             self.verification = SMSVerification(Config.SINCH_KEY, phoneNumber: self.phoneNumber)
             self.verification.initiate { (result: InitiationResult, error:Error?) -> Void in
-                self.disableUI(false);
+                self.disableUI(false)
                 if (result.success){
                     Helpers.goToScreen(name: "fromPhoneNumberToPinCode", sender: self, viewController: self)
                 } else {
@@ -112,13 +112,13 @@ class PhoneNumberVC: UIViewController, UITextFieldDelegate, CountryPickerDelegat
         }
     }
     
-    //Disable the UI with delay after the user click on the send button so the user won't click again
+    // Disable the UI with delay after the user click on the send button so the user won't click again
     func disableUI(_ disable: Bool) {
-        var alpha:CGFloat = 1.0;
+        var alpha:CGFloat = 1.0
         if (disable) {
-            alpha = 0.5;
-            phoneText.resignFirstResponder();
-            spinner.startAnimating();
+            alpha = 0.5
+            phoneText.resignFirstResponder()
+            spinner.startAnimating()
             let delayTime =
                 DispatchTime.now() +
                     Double(Int64(30 * Double(NSEC_PER_SEC)))
@@ -126,17 +126,17 @@ class PhoneNumberVC: UIViewController, UITextFieldDelegate, CountryPickerDelegat
             DispatchQueue.main.asyncAfter(
                 deadline: delayTime, execute:
                 { () -> Void in
-                    self.disableUI(false);
-            });
+                    self.disableUI(false)
+            })
         }
         else{
-            self.phoneText.becomeFirstResponder();
-            self.spinner.stopAnimating();
+            self.phoneText.becomeFirstResponder()
+            self.spinner.stopAnimating()
             
         }
-        self.phoneText.isEnabled = !disable;
-        self.smsBtn.isEnabled = !disable;
-        self.smsBtn.alpha = alpha;
+        self.phoneText.isEnabled = !disable
+        self.smsBtn.isEnabled = !disable
+        self.smsBtn.alpha = alpha
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
@@ -160,15 +160,15 @@ class PhoneNumberVC: UIViewController, UITextFieldDelegate, CountryPickerDelegat
     }
     
     func initControls() {
-        //set alpha to 0 for animation
+        // set alpha to 0 for animation
         self.phoneText.alpha = 0.0
         self.smsBtn.alpha = 0.0
         self.image.alpha = 0.0
         self.countryCodeText.alpha = 0.0
-        //Get current country code for pickerview
+        // Get current country code for pickerview
         let locale = Locale.current
         let code = (locale as NSLocale).object(forKey: NSLocale.Key.countryCode) as! String?
-        //init Picker
+        // init Picker
         countryPickerView = CountryPicker()
         countryPickerView.countryPickerDelegate = self
         countryPickerView.showPhoneNumbers = true

@@ -9,9 +9,7 @@
 import UIKit
 
 class LineSeparator: UIView {
-    
     override func awakeFromNib() {
-        
         let sortaPixel: CGFloat = 1.0/UIScreen.main.scale
         
         let topSeparatorView = UIView()

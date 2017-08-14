@@ -1,10 +1,10 @@
-//
+// 
 //  TrayViewContainer.swift
-//  BringMyFood
-//
+//  WhereIsMyFood
+// 
 //  Created by elad schwartz on 30/05/2017.
 //  Copyright © 2017 elad schwartz. All rights reserved.
-//
+// 
 
 import UIKit
 import MapKit
@@ -26,12 +26,12 @@ class TrayVC: UIViewController {
     var last4Digits = ""
     var isCustomerExist = false
     var indexPathSelected: IndexPath?
-    //Subtotal Cell
+    // Subtotal Cell
     var subTotalLableString: String?
     var deliveryFeeString: String?
-    //Total Cell
+    // Total Cell
     var totalLabelString: String?
-    //Pamyment Cell
+    // Pamyment Cell
     var cardImage: UIImage?
     var isNewCard = false
     var emptyCartView: EmptyCartView?
@@ -43,11 +43,11 @@ class TrayVC: UIViewController {
         tableView.isHidden = true
         activityIndicator = Helpers.showActivityIndicator(view: self.view)
         self.hideKeyboardWhenTappedAround()
-        //Hide empty cells
+        // Hide empty cells
         self.tableView.tableFooterView = UIView.init()
         NotificationCenter.default.addObserver(self, selector: #selector(self.changeBtnText), name: NSNotification.Name(rawValue: "changeOrderBtnText"), object: nil)
         
-        //Side Menu Swipe
+        // Side Menu Swipe
         if self.revealViewController() != nil {
             menuBarButton = Helpers.initMenuBtn(controller: self, barBtn: menuBarButton)
         }
@@ -89,7 +89,7 @@ class TrayVC: UIViewController {
         }
     }
     
-    //Check if cutomser is returning customer and entered in the past credit card
+    // Check if cutomser is returning customer and entered in the past credit card
     func checkCustomerStripe() {
         APIManager.shared.isCustomerStripe { (json) in
             if json != JSON.null {
@@ -99,7 +99,7 @@ class TrayVC: UIViewController {
                 self.isCustomerExist = true
                 self.addPaymentBtn.setTitle("Place Order".localized(category: "Tray"), for: .normal)
                 
-                //change payment cell to show the credit card brand and 4 last card digits
+                // change payment cell to show the credit card brand and 4 last card digits
                 self.last4Digits = last4Digits
                 if let image = UIImage(named: cardName.lowercased()) {
                     self.cardImage = image
@@ -123,24 +123,24 @@ class TrayVC: UIViewController {
                 }else {
                     self.tableView.isHidden = false
                     self.activityIndicator.stopAnimating()
-                    // Display all of the UI controllers and load items
+                    //  Display all of the UI controllers and load items
                     self.tableView.reloadData()
                 }
             }
         }
     }
     
-    //Create anOrder
+    // Create anOrder
     @IBAction func placeOrderBtnTapped(_ sender: AnyObject) {
         self.addPaymentBtn.isEnabled = false
         activityIndicator = Helpers.showActivityIndicator(view: self.view)
         let token = self.stripeToken != nil ? self.stripeToken?.tokenId:""
         if self.stripeToken != nil || self.isCustomerExist  {
-            //Check if there is already open order for this user
+            // Check if there is already open order for this user
             APIManager.shared.ifOrderExist() { (json) in
                 if json[0] ==  JSON.null || json[0]["status_name"] == "Delivered" {
                     APIManager.shared.createOrder(stripeToken: token!, isNewCard: self.isNewCard, last4Digits:self.last4Digits ) { (json) in
-                        //if there was a problem with chaarging the credit card, show a message with the error
+                        // if there was a problem with chaarging the credit card, show a message with the error
                         if (json["charge"]["status"] != "succeeded"){
                             if let message = json["message"].string {
                                 self.activityIndicator.stopAnimating()
@@ -149,7 +149,7 @@ class TrayVC: UIViewController {
                                 self.addPaymentBtn.isEnabled = true
                             }
                         } else {
-                            //go to order screen if charge was ok
+                            // go to order screen if charge was ok
                             self.activityIndicator.stopAnimating()
                             Helpers.userDefaults.set(String(json["order_id"].int!), forKey: "order_id")
                             Tray.currentTray.reset()
@@ -158,7 +158,7 @@ class TrayVC: UIViewController {
                     }
                 }
                 else {
-                    // Showing an alert message if there is an open order.
+                    //  Showing an alert message if there is an open order.
                     self.activityIndicator.stopAnimating()
                     self.addPaymentBtn.isEnabled = true
                     let cancelAction = UIAlertAction(title: "OK".localized(category: "Buttons"), style: .cancel)
@@ -172,7 +172,7 @@ class TrayVC: UIViewController {
                 }
             }
         } else {
-            //if usde didn't enter credit card
+            // if usde didn't enter credit card
             self.activityIndicator.stopAnimating()
             self.performSegue(withIdentifier: "fromTrayToPayment", sender: self)
         }
@@ -185,12 +185,12 @@ class TrayVC: UIViewController {
     func showContorls(show: Bool) {
         tableView.isHidden = show == false ? true : false
         if (show){
-            // Display all of the UI controllers and load items
+            //  Display all of the UI controllers and load items
             loadItems()
         }
     }
     
-    //Set labels text
+    // Set labels text
     func loadItems() {
         let total = Tray.currentTray.getTotal()
         guard let deliveryfee = Tray.currentTray.restaurant?.deliveryFee else {
@@ -231,7 +231,7 @@ extension TrayVC: UITableViewDelegate, UITableViewDataSource, TrayCellelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
-            //Item & Addons
+            // Item & Addons
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TrayCell", for: indexPath) as! TrayCell
             let trayItem = Tray.currentTray.items[indexPath.row]
@@ -247,7 +247,7 @@ extension TrayVC: UITableViewDelegate, UITableViewDataSource, TrayCellelegate {
             if (addonsSelected.count != 0) {
                 cell.itemAddonsLbl.isHidden = false
                 cell.itemAddonsLbl.text = ""
-                //loop over the selected addons for each item and set the label to show the name and the price(if the addon has price)
+                // loop over the selected addons for each item and set the label to show the name and the price(if the addon has price)
                 for addon in addonsSelected {
                     guard let addonName = addon.name else {
                         return cell
@@ -267,14 +267,14 @@ extension TrayVC: UITableViewDelegate, UITableViewDataSource, TrayCellelegate {
             return cell
             
         case 1:
-            //Notes
+            // Notes
             let cell = tableView.dequeueReusableCell(withIdentifier: "NoteCell", for: indexPath)
             cell.textLabel?.text = "Restaurants Notes".localized(category: "Tray")
             cell.textLabel?.textColor = UIColor.white
             return cell
-        //Sub Total and Delivery Fee
+        // Sub Total and Delivery Fee
         case 2:
-            //If customer exist show the last 4 digits in the lable. if not show add payment
+            // If customer exist show the last 4 digits in the lable. if not show add payment
             let cell = tableView.dequeueReusableCell(withIdentifier: "PaymentCell", for: indexPath) as! PaymentCell
             if (self.isCustomerExist || self.last4Digits != "") {
                 cell.cardNumber.text = "****\(last4Digits)"
@@ -286,7 +286,7 @@ extension TrayVC: UITableViewDelegate, UITableViewDataSource, TrayCellelegate {
             guard  let image = self.cardImage else {return cell}
             cell.cardImageView.image = image
             return cell
-        //Total
+        // Total
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TotalCell", for: indexPath) as! TotalCell
             cell.subTotal.text = "\(Config.CURRENCY_SIGN)\(Tray.currentTray.getTotal())"
@@ -304,13 +304,13 @@ extension TrayVC: UITableViewDelegate, UITableViewDataSource, TrayCellelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //Open restaurant notes view
+        // Open restaurant notes view
         if indexPath.section == 1 {
             self.performSegue(withIdentifier: "fromTrayToNotes", sender: "Restaurant")
             return
         }
         
-        //Go to payments screen if customer not exist or go to change payments if he do
+        // Go to payments screen if customer not exist or go to change payments if he do
         if indexPath.section == 2 {
             if(self.isCustomerExist) {
                 self.performSegue(withIdentifier: "fromTrayToPaymentChange", sender: self)
@@ -348,7 +348,7 @@ extension TrayVC: UITableViewDelegate, UITableViewDataSource, TrayCellelegate {
     }
     
   
-    //Delete button for item in a cell
+    // Delete button for item in a cell
     func deleteButtonPressed (sender: AnyObject) {
         guard let cell = sender.superview??.superview as? TrayCell else {
             return
@@ -379,7 +379,7 @@ extension TrayVC: UITableViewDelegate, UITableViewDataSource, TrayCellelegate {
         self.present(alertView, animated: true, completion: nil)
     }
     
-    //Edit item in a cell
+    // Edit item in a cell
      func editButtonPressed (sender: AnyObject) {
         guard let cell = sender.superview??.superview as? TrayCell else {
             return

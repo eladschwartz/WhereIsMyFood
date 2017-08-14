@@ -1,6 +1,6 @@
 //
 //  PaymentCell.swift
-//  BringMyFood
+//  WhereIsMyFood
 //
 //  Created by elad schwartz on 30/05/2017.
 //  Copyright © 2017 elad schwartz. All rights reserved.
