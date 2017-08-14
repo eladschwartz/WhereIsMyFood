@@ -103,12 +103,10 @@ Todo
 * Add item to existing order
 
 **Client**
-* Fix some bugs
-* Add payment with PayPal
+* Add payment with Paypal
 * Add Order history
 * Add Favorites
 * Push Notifications
-
 
 
 Testing
