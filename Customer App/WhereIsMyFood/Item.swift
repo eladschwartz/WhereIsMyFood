@@ -32,11 +32,11 @@ class Item {
         self.description = description
         self.imageUrl = imageUrl
         self.isDiscount = Bool.init(Int(isDiscount)!)
-        self.discountRate = Double(discountRate)
+        self.discountRate = discountRate.toDouble()
         if (self.isDiscount)! {
-            self.price = Double(price)! - (Double(price)! * Double(self.discountRate!/100))
+            self.price = price.toDouble() - (price.toDouble() * (self.discountRate!/100))
         }else {
-            self.price = Double(price)
+            self.price = price.toDouble()
         }
        
         self.show = Bool.init(Int(show)!)
@@ -47,7 +47,7 @@ class Item {
         var total: Double = 0
         for addon in self.addonsSelected {
             if let price = addon.price, addon.price != "" {
-                total +=  Double(price)!
+                total +=  price.toDouble()
             }
         }
          return total

@@ -25,7 +25,7 @@ class Restaurant {
         self.image = json["image"].string
         self.active = Bool.init(json["active"].string!)
         self.phoneNumber = json["phone_number"].string
-        self.deliveryFee = Double(json["delivery_fee"].string!)
+        self.deliveryFee = json["delivery_fee"].string!.toDouble()
     }
     
 }

@@ -69,16 +69,12 @@ class APIManager {
     }
     
     // Get Settings
-    func isSingleBranch(completionHandler: @escaping (JSON) -> Void) {
-        let path = "Api/get_is_single_branch/"
-        requestServer(.get, path, nil, URLEncoding(), completionHandler)
-    }
-    
     func getCurrency(completionHandler: @escaping (JSON) -> Void) {
         let path = "Api/get_currency/"
         requestServer(.get, path, nil, URLEncoding(), completionHandler)
     }
     
+ 
     
     //   ---------- Customers ------- // 
     
@@ -292,31 +288,7 @@ class APIManager {
     
     // Create and order
     func createOrder(stripeToken: String, isNewCard: Bool, last4Digits: String, completionHandler: @escaping (JSON) -> Void) {
-        let itemsarr = Tray.currentTray.items
-        var jsonarr = [[String : Any]]()
-        
-        // Loop all items in tray and for each item get the addons selcted and insert to a dict
-        for i in 0 ..< itemsarr.count {
-            let trayItem = itemsarr[i]
-            var addonsDict = [[String : String]]()
-            var arr = [String : Any]()
-            arr["item_id"] = trayItem.item.id
-            arr["quantity"] = trayItem.qty
-            arr["item_price"] = trayItem.item.price
-            let addons = trayItem.item.addonsSelected
-            for addon in addons {
-                var dict = [String : String]()
-                dict["adddon_name"] = addon.name
-                dict["adddon_id"] = String(describing: addon.id!)
-                dict["price"] = String(describing: addon.price!)
-                dict["item_id"] = addon.itemId
-                dict["addon_detail_id"] =  String(describing: addon.addonDetailId!)
-                addonsDict.append(dict)
-            }
-            jsonarr.append(arr)
-            jsonarr[i]["addons"] = addonsDict
-        }
-        
+        let jsonarr = createOrderDict()
         // Convert the dict to a json object and send to the server
         if JSONSerialization.isValidJSONObject(jsonarr) {
             do {
@@ -349,6 +321,33 @@ class APIManager {
                 print("JSON serialization failed: \(error)")
             }
         }
+    }
+    
+    func createOrderDict() ->  [[String : Any]] {
+        let itemsarr = Tray.currentTray.items
+        var jsonarr = [[String : Any]]()
+        // Loop all items in tray and for each item get the addons selcted and insert to a dict
+        for i in 0 ..< itemsarr.count {
+            let trayItem = itemsarr[i]
+            var addonsDict = [[String : String]]()
+            var arr = [String : Any]()
+            arr["item_id"] = trayItem.item.id
+            arr["quantity"] = trayItem.qty
+            arr["item_price"] = trayItem.item.price
+            let addons = trayItem.item.addonsSelected
+            for addon in addons {
+                var dict = [String : String]()
+                dict["adddon_name"] = addon.name
+                dict["adddon_id"] = String(describing: addon.id!)
+                dict["price"] = String(describing: addon.price!)
+                dict["item_id"] = addon.itemId
+                dict["addon_detail_id"] =  String(describing: addon.addonDetailId!)
+                addonsDict.append(dict)
+            }
+            jsonarr.append(arr)
+            jsonarr[i]["addons"] = addonsDict
+        }
+        return jsonarr
     }
     
     // Getting the latest order (Customer)

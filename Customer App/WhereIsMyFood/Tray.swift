@@ -32,7 +32,7 @@ class Tray {
         for trayitem in self.items {
             for addon in trayitem.item.addonsSelected {
                 if let addonPrice = addon.price, addon.price != "" {
-                    totalAddons = totalAddons + (Double(addonPrice)! * Double(trayitem.qty))
+                    totalAddons = totalAddons + ( (addonPrice).toDouble() * Double(trayitem.qty) )
                 }
             }
         }
