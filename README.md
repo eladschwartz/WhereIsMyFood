@@ -61,8 +61,6 @@ Installation
 
 * You also need a [Sinch](https://www.sinch.com) account if you are going to use this in production.
 
-* You can use this phone number to skip the SMS verification: +1 23456789 
-
 * Please import the file "whereismyfood.sql" to your DB.
 
 **Xcode** <br>
@@ -92,9 +90,8 @@ To your own setup.
 ## Usage
 This project is still under development but the major features are working.
 
-You can download the guide for the Admin Panel from [Here](https://whereismyfood.biz/docs/amdin_guide.pdf)
+You can use the guide in the guide folder(admin panel/php + apps guide )
 
-You can download the guide for the Apps  from [Here](https://whereismyfood.biz/docs/amdin_guide.pdf)
 
 Todo
 ----
@@ -109,7 +106,7 @@ Todo
 * Add payment with PayPal
 * Add Order history
 * Add Favorites
-
+* Push Notifications
 
 
 
@@ -118,7 +115,10 @@ Testing
 
 I tested the app on iPod, iPad(9.7) and iPhone 6s plus and it's working fine.
 
-I didn't test payment with real credit card, only stripe test cards, but i'll do it when I add Paypal
+I didn't test payment with real credit card, only stripe test cards, but I'll do it when I add Paypal Support
+
+* You can use this phone number to skip the SMS verification for custoemer app: +12 
+* You can use this phone number to skip the SMS verification for driver app: +11
 
 
 Credits
@@ -143,7 +143,7 @@ License
 -------
 MIT License
 
-Copyright (c) [2017] [Elad Schwartz]
+Copyright (c) 2017 Elad Schwartz
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
