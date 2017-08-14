@@ -117,7 +117,7 @@ I tested the app on iPod, iPad(9.7) and iPhone 6s plus and it's working fine.
 
 I didn't test payment with real credit card, only stripe test cards, but I'll do it when I add Paypal Support
 
-* You can use this phone number to skip the SMS verification for custoemer app: +12 
+* You can use this phone number to skip the SMS verification for customer app: +12 
 * You can use this phone number to skip the SMS verification for driver app: +11
 
 
