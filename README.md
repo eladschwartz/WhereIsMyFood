@@ -50,6 +50,7 @@ Prerequisites
 ------------
 
 * Xcode 8
+* iOS 9.0+
 * Stripe Account
 * Sinch Account(SMS verification)
 * PHP > 5.6

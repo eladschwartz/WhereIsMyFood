@@ -1,10 +1,10 @@
-//
+// 
 //  LoginVC.swift
 //  WhereIsMyFood-Driver
-//
+// 
 //  Created by elad schwartz on 25/07/2017.
 //  Copyright © 2017 elad schwartz. All rights reserved.
-//
+// 
 
 
 import UIKit
@@ -14,12 +14,12 @@ import CountryPicker
 import SkyFloatingLabelTextField
 
 class LoginVC: UIViewController, UITextFieldDelegate, CountryPickerDelegate {
-    
     @IBOutlet weak var countryCodeText: SkyFloatingLabelTextFieldWithIcon!
     @IBOutlet weak var phoneText: SkyFloatingLabelTextFieldWithIcon!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var smsBtn: UIButton!
     @IBOutlet weak var image: UIImageView!
+    
     @IBAction func unwindToLogin(segue: UIStoryboardSegue) {}
     
     var verification:Verification!
@@ -38,25 +38,25 @@ class LoginVC: UIViewController, UITextFieldDelegate, CountryPickerDelegate {
         self.disableUI(true)
         phoneNumber = self.countryCodeText.text! + self.phoneText.text!
         
-        //For DEMO only - remove this in production
+        // For DEMO only - remove this in production
         if (phoneNumber == "+11") {
             APIManager.shared.getDetailsAndSave(phoneNumber: phoneNumber) { (json) in
                     Helpers.goToScreen(name: "fromPhoneToOrders", sender: self, viewController: self)
             }
             return
         }
-        //------------------------------
+        // ------------------------------
         
         
         APIManager.shared.isDriverApprvoed(phone: phoneNumber) { (json) in
-            //If driver not approved(phone number wasn't found)
+            // If driver not approved(phone number wasn't found)
             if (json == JSON.null) {
                 let errorAlert = Helpers.showErrorAlert(btntext: "OK", message: "Phone number not found - please ask the admin to enable your account")
                 self.present(errorAlert, animated: true)
                 self.disableUI(false)
                 return
             }
-            //If phone number found in db -> go to pin code screen
+            // If phone number found in db -> go to pin code screen
             self.verification = SMSVerification(Config.SINCH_KEY, phoneNumber: self.phoneNumber)
             self.verification.initiate { (result: InitiationResult, error:Error?) -> Void in
                 self.disableUI(false)
@@ -83,7 +83,7 @@ class LoginVC: UIViewController, UITextFieldDelegate, CountryPickerDelegate {
         return false
     }
     
-    //Disable UI
+    // Disable UI
     func disableUI(_ disable: Bool) {
         var alpha:CGFloat = 1.0
         if (disable) {
@@ -113,7 +113,7 @@ class LoginVC: UIViewController, UITextFieldDelegate, CountryPickerDelegate {
     func initControls() {
         let locale = Locale.current
         let code = (locale as NSLocale).object(forKey: NSLocale.Key.countryCode) as! String?
-        //init Picker
+        // init Picker
         countryPickerView = CountryPicker()
         countryPickerView.countryPickerDelegate = self
         countryPickerView.showPhoneNumbers = true
@@ -121,9 +121,9 @@ class LoginVC: UIViewController, UITextFieldDelegate, CountryPickerDelegate {
         self.countryCodeText.inputView = countryPickerView
     }
     
-    // a picker item was selected
+    //  a picker item was selected
     func countryPhoneCodePicker(_ picker: CountryPicker, didSelectCountryWithName name: String, countryCode: String, phoneCode: String, flag: UIImage) {
-        //pick up anythink
+        // pick up anythink
         self.countryCodeText.text = phoneCode
     }
     
