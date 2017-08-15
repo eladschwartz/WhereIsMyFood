@@ -1,0 +1,507 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		41C61CCFE1964A81C7DE3577 /* Pods_WhereIsMyFood_Driver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 286AB937258E5B7BFF647129 /* Pods_WhereIsMyFood_Driver.framework */; };
+		524810001F278CA3005EC4CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52480FFF1F278CA3005EC4CB /* AppDelegate.swift */; };
+		524810051F278CA3005EC4CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 524810031F278CA3005EC4CB /* Main.storyboard */; };
+		524810071F278CA3005EC4CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 524810061F278CA3005EC4CB /* Assets.xcassets */; };
+		5248100A1F278CA3005EC4CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 524810081F278CA3005EC4CB /* LaunchScreen.storyboard */; };
+		524810151F278EEB005EC4CB /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524810121F278E00005EC4CB /* Helpers.swift */; };
+		524810171F278FBF005EC4CB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524810161F278FBF005EC4CB /* Constants.swift */; };
+		524810191F278FE9005EC4CB /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524810181F278FE9005EC4CB /* ApiManager.swift */; };
+		5248101C1F279017005EC4CB /* OrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5248101B1F279017005EC4CB /* OrderCell.swift */; };
+		5248101F1F27904D005EC4CB /* Driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5248101E1F27904D005EC4CB /* Driver.swift */; };
+		524810211F27905A005EC4CB /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524810201F27905A005EC4CB /* Order.swift */; };
+		524810291F2790BE005EC4CB /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524810281F2790BE005EC4CB /* MainVC.swift */; };
+		5248102B1F2790DF005EC4CB /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5248102A1F2790DF005EC4CB /* LoginVC.swift */; };
+		5248102D1F2790FC005EC4CB /* EnterCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5248102C1F2790FC005EC4CB /* EnterCodeVC.swift */; };
+		5248102F1F279119005EC4CB /* OrdersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5248102E1F279119005EC4CB /* OrdersVC.swift */; };
+		524810311F27913E005EC4CB /* DeliveryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524810301F27913E005EC4CB /* DeliveryVC.swift */; };
+		524810331F27917C005EC4CB /* CustomerMenuTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524810321F27917C005EC4CB /* CustomerMenuTVC.swift */; };
+		524810361F2792E2005EC4CB /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 524810351F2792E2005EC4CB /* SWRevealViewController.m */; };
+		524A81C41F3FACE900DF2DC2 /* EmptyOrders.xib in Resources */ = {isa = PBXBuildFile; fileRef = 524A81C31F3FACE900DF2DC2 /* EmptyOrders.xib */; };
+		524A81C61F3FAEBF00DF2DC2 /* EmptyOrders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524A81C51F3FAEBF00DF2DC2 /* EmptyOrders.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		286AB937258E5B7BFF647129 /* Pods_WhereIsMyFood_Driver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhereIsMyFood_Driver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		52480FFC1F278CA3005EC4CB /* WhereIsMyFood-Driver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WhereIsMyFood-Driver.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		52480FFF1F278CA3005EC4CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		524810041F278CA3005EC4CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		524810061F278CA3005EC4CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		524810091F278CA3005EC4CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5248100B1F278CA3005EC4CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		524810121F278E00005EC4CB /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		524810161F278FBF005EC4CB /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		524810181F278FE9005EC4CB /* ApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
+		5248101B1F279017005EC4CB /* OrderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderCell.swift; sourceTree = "<group>"; };
+		5248101E1F27904D005EC4CB /* Driver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Driver.swift; sourceTree = "<group>"; };
+		524810201F27905A005EC4CB /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		524810221F279088005EC4CB /* WhereIsMyFood-Driver-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WhereIsMyFood-Driver-Bridging-Header.h"; sourceTree = "<group>"; };
+		524810281F2790BE005EC4CB /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		5248102A1F2790DF005EC4CB /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		5248102C1F2790FC005EC4CB /* EnterCodeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterCodeVC.swift; sourceTree = "<group>"; };
+		5248102E1F279119005EC4CB /* OrdersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersVC.swift; sourceTree = "<group>"; };
+		524810301F27913E005EC4CB /* DeliveryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeliveryVC.swift; sourceTree = "<group>"; };
+		524810321F27917C005EC4CB /* CustomerMenuTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerMenuTVC.swift; sourceTree = "<group>"; };
+		524810341F2792E2005EC4CB /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		524810351F2792E2005EC4CB /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		524A81C31F3FACE900DF2DC2 /* EmptyOrders.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyOrders.xib; sourceTree = "<group>"; };
+		524A81C51F3FAEBF00DF2DC2 /* EmptyOrders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyOrders.swift; sourceTree = "<group>"; };
+		7B1E314E9E8C2B1F18667E61 /* Pods-WhereIsMyFood-Driver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhereIsMyFood-Driver.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhereIsMyFood-Driver/Pods-WhereIsMyFood-Driver.release.xcconfig"; sourceTree = "<group>"; };
+		E4AE61A2DAEF369F9326E01D /* Pods-WhereIsMyFood-Driver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhereIsMyFood-Driver.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhereIsMyFood-Driver/Pods-WhereIsMyFood-Driver.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		52480FF91F278CA3005EC4CB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41C61CCFE1964A81C7DE3577 /* Pods_WhereIsMyFood_Driver.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		476AC92C0BE71FD6208E73ED /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				286AB937258E5B7BFF647129 /* Pods_WhereIsMyFood_Driver.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		52480FF31F278CA3005EC4CB = {
+			isa = PBXGroup;
+			children = (
+				52480FFE1F278CA3005EC4CB /* WhereIsMyFood-Driver */,
+				52480FFD1F278CA3005EC4CB /* Products */,
+				580A269776F72BAD9401BCE1 /* Pods */,
+				476AC92C0BE71FD6208E73ED /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		52480FFD1F278CA3005EC4CB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				52480FFC1F278CA3005EC4CB /* WhereIsMyFood-Driver.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		52480FFE1F278CA3005EC4CB /* WhereIsMyFood-Driver */ = {
+			isa = PBXGroup;
+			children = (
+				524A81C21F3FA1E100DF2DC2 /* Resources */,
+				524810111F278DE8005EC4CB /* Manager */,
+				524810271F2790A4005EC4CB /* Controller */,
+				5248101A1F279006005EC4CB /* View */,
+				5248101D1F279027005EC4CB /* Model */,
+				524810261F27908F005EC4CB /* Lib */,
+			);
+			path = "WhereIsMyFood-Driver";
+			sourceTree = "<group>";
+		};
+		524810111F278DE8005EC4CB /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				524810121F278E00005EC4CB /* Helpers.swift */,
+				524810161F278FBF005EC4CB /* Constants.swift */,
+				524810181F278FE9005EC4CB /* ApiManager.swift */,
+			);
+			name = Manager;
+			sourceTree = "<group>";
+		};
+		5248101A1F279006005EC4CB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5248101B1F279017005EC4CB /* OrderCell.swift */,
+				524A81C31F3FACE900DF2DC2 /* EmptyOrders.xib */,
+				524A81C51F3FAEBF00DF2DC2 /* EmptyOrders.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		5248101D1F279027005EC4CB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5248101E1F27904D005EC4CB /* Driver.swift */,
+				524810201F27905A005EC4CB /* Order.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		524810261F27908F005EC4CB /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				524810341F2792E2005EC4CB /* SWRevealViewController.h */,
+				524810351F2792E2005EC4CB /* SWRevealViewController.m */,
+				524810221F279088005EC4CB /* WhereIsMyFood-Driver-Bridging-Header.h */,
+			);
+			name = Lib;
+			sourceTree = "<group>";
+		};
+		524810271F2790A4005EC4CB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				524810281F2790BE005EC4CB /* MainVC.swift */,
+				5248102A1F2790DF005EC4CB /* LoginVC.swift */,
+				5248102C1F2790FC005EC4CB /* EnterCodeVC.swift */,
+				5248102E1F279119005EC4CB /* OrdersVC.swift */,
+				524810301F27913E005EC4CB /* DeliveryVC.swift */,
+				524810321F27917C005EC4CB /* CustomerMenuTVC.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		524A81C21F3FA1E100DF2DC2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				52480FFF1F278CA3005EC4CB /* AppDelegate.swift */,
+				524810031F278CA3005EC4CB /* Main.storyboard */,
+				524810061F278CA3005EC4CB /* Assets.xcassets */,
+				524810081F278CA3005EC4CB /* LaunchScreen.storyboard */,
+				5248100B1F278CA3005EC4CB /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		580A269776F72BAD9401BCE1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E4AE61A2DAEF369F9326E01D /* Pods-WhereIsMyFood-Driver.debug.xcconfig */,
+				7B1E314E9E8C2B1F18667E61 /* Pods-WhereIsMyFood-Driver.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		52480FFB1F278CA3005EC4CB /* WhereIsMyFood-Driver */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5248100E1F278CA3005EC4CB /* Build configuration list for PBXNativeTarget "WhereIsMyFood-Driver" */;
+			buildPhases = (
+				7679DF8E71866F9D71DDDC12 /* [CP] Check Pods Manifest.lock */,
+				52480FF81F278CA3005EC4CB /* Sources */,
+				52480FF91F278CA3005EC4CB /* Frameworks */,
+				52480FFA1F278CA3005EC4CB /* Resources */,
+				96C22CB389546BD18012E9F2 /* [CP] Embed Pods Frameworks */,
+				31E68E6A66D0618D1A858BBC /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "WhereIsMyFood-Driver";
+			productName = "WhereIsMyFood-Driver";
+			productReference = 52480FFC1F278CA3005EC4CB /* WhereIsMyFood-Driver.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		52480FF41F278CA3005EC4CB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "elad schwartz";
+				TargetAttributes = {
+					52480FFB1F278CA3005EC4CB = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 74TQN32785;
+						LastSwiftMigration = 0830;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 52480FF71F278CA3005EC4CB /* Build configuration list for PBXProject "WhereIsMyFood-Driver" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 52480FF31F278CA3005EC4CB;
+			productRefGroup = 52480FFD1F278CA3005EC4CB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				52480FFB1F278CA3005EC4CB /* WhereIsMyFood-Driver */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		52480FFA1F278CA3005EC4CB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5248100A1F278CA3005EC4CB /* LaunchScreen.storyboard in Resources */,
+				524810071F278CA3005EC4CB /* Assets.xcassets in Resources */,
+				524A81C41F3FACE900DF2DC2 /* EmptyOrders.xib in Resources */,
+				524810051F278CA3005EC4CB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		31E68E6A66D0618D1A858BBC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WhereIsMyFood-Driver/Pods-WhereIsMyFood-Driver-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7679DF8E71866F9D71DDDC12 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		96C22CB389546BD18012E9F2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WhereIsMyFood-Driver/Pods-WhereIsMyFood-Driver-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		52480FF81F278CA3005EC4CB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				524810191F278FE9005EC4CB /* ApiManager.swift in Sources */,
+				5248102F1F279119005EC4CB /* OrdersVC.swift in Sources */,
+				524A81C61F3FAEBF00DF2DC2 /* EmptyOrders.swift in Sources */,
+				524810331F27917C005EC4CB /* CustomerMenuTVC.swift in Sources */,
+				524810001F278CA3005EC4CB /* AppDelegate.swift in Sources */,
+				5248101C1F279017005EC4CB /* OrderCell.swift in Sources */,
+				524810311F27913E005EC4CB /* DeliveryVC.swift in Sources */,
+				5248102D1F2790FC005EC4CB /* EnterCodeVC.swift in Sources */,
+				524810361F2792E2005EC4CB /* SWRevealViewController.m in Sources */,
+				5248102B1F2790DF005EC4CB /* LoginVC.swift in Sources */,
+				524810291F2790BE005EC4CB /* MainVC.swift in Sources */,
+				5248101F1F27904D005EC4CB /* Driver.swift in Sources */,
+				524810151F278EEB005EC4CB /* Helpers.swift in Sources */,
+				524810171F278FBF005EC4CB /* Constants.swift in Sources */,
+				524810211F27905A005EC4CB /* Order.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		524810031F278CA3005EC4CB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				524810041F278CA3005EC4CB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		524810081F278CA3005EC4CB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				524810091F278CA3005EC4CB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5248100C1F278CA3005EC4CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5248100D1F278CA3005EC4CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5248100F1F278CA3005EC4CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4AE61A2DAEF369F9326E01D /* Pods-WhereIsMyFood-Driver.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 74TQN32785;
+				INFOPLIST_FILE = "WhereIsMyFood-Driver/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.elad-schwartz.WhereIsMyFood-Driver";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "WhereIsMyFood-Driver/WhereIsMyFood-Driver-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		524810101F278CA3005EC4CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7B1E314E9E8C2B1F18667E61 /* Pods-WhereIsMyFood-Driver.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 74TQN32785;
+				INFOPLIST_FILE = "WhereIsMyFood-Driver/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.elad-schwartz.WhereIsMyFood-Driver";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "WhereIsMyFood-Driver/WhereIsMyFood-Driver-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		52480FF71F278CA3005EC4CB /* Build configuration list for PBXProject "WhereIsMyFood-Driver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5248100C1F278CA3005EC4CB /* Debug */,
+				5248100D1F278CA3005EC4CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5248100E1F278CA3005EC4CB /* Build configuration list for PBXNativeTarget "WhereIsMyFood-Driver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5248100F1F278CA3005EC4CB /* Debug */,
+				524810101F278CA3005EC4CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 52480FF41F278CA3005EC4CB /* Project object */;
+}
