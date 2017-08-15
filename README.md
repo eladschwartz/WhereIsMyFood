@@ -97,6 +97,7 @@ You can use the guide in the guide folder(admin panel/php + apps guide )
 Todo
 ----
 **Server**
+* Work on the admin panel main page
 * Create a new order using admin panel(right now only a customer can make a new order using the app)
 * Add refund options (Full or Partial)
 * Edit/Remove an item from order(= partial refund)
