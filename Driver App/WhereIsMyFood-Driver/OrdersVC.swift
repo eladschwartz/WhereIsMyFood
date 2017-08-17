@@ -35,12 +35,15 @@ class OrdersVC: UIViewController  {
     }
     
     func loadOrders() {
-        APIManager.shared.getOrders{(json) in
+        APIManager.shared.getOrders { (json) in
             self.showActivityIndicator()
             if (json != JSON.null) {
                 if (json == []) {
-                     self.setOrdersEmpty()
-                     return
+                     DispatchQueue.main.async() {
+                        self.setOrdersEmpty()
+                        
+                    }
+                    return
                 }
                 
                 self.orders = []

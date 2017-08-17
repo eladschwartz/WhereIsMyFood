@@ -27,4 +27,8 @@ class Addon {
         self.itemId = itemId
         self.addonDetailId = addonDetailId
     }
+    
+    deinit {
+        print("Addon \(name!) deinit")
+    }
 }

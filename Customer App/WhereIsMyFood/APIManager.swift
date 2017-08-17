@@ -36,7 +36,6 @@ class APIManager {
                 completionHandler(jsonData)
                 break
             case .failure:
-                print(response.error.debugDescription)
                 completionHandler(JSON.null)
                 break
             }

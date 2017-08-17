@@ -19,7 +19,6 @@ class MainVC: UIViewController {
     func activeSegue() {
         //check if driver is logged in and get the his details. if not logged in go to sms screen
         let isLogin = Helpers.userDefaults.bool(forKey: "is_login")
-        
         guard let phoneNumber = Helpers.userDefaults.string(forKey: "phone") else {
             return
         }

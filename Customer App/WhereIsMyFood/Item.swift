@@ -42,6 +42,10 @@ class Item {
         self.show = Bool.init(Int(show)!)
     }
     
+    deinit {
+        print("Item \(name!) deinit")
+    }
+    
     //Getting the total price for all the adoons the user selcted(and skip addons without price)
     func getAddonsSeletedTotal() -> Double {
         var total: Double = 0

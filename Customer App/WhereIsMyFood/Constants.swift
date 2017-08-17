@@ -14,8 +14,8 @@ enum Config {
     static let SINCH_KEY = "" //Enter the key you get from  Sinch
     static let UID = UIDevice.current.identifierForVendor!.uuidString
     static var CURRENCY_SIGN = "" //Currency is set in the admin panel by the restaurant
-    static var ORDER_ACTIVE_TIMER_INTERVAL: TimeInterval = 10 //Timer that will check if the the current order is the active one(= driver took the order)
-    static var DRIVER_TIMER_INTERVAL: TimeInterval = 10 // Timer that will check the location of the driver
+    static var ORDER_ACTIVE_TIMER_INTERVAL: TimeInterval = 60 //Timer that will check if the the current order is the active one(= driver took the order)
+    static var DRIVER_TIMER_INTERVAL: TimeInterval = 60 // Timer that will check the location of the driver
 }
 
 

@@ -40,6 +40,10 @@ class Section {
         self.isRequired = isRequired
     }
     
+    deinit {
+        print("Section \(name!) deinit")
+    }
+    
   
     func addToDetails(addon: Addon, isChecked: Bool = false) {
         let detail = Detail(addon:addon, isChecked: false)

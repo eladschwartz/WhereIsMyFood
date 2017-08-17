@@ -42,7 +42,14 @@ class OrderVC: UIViewController {
             orderTimer?.invalidate()
             orderTimer = nil
         }
+        
+        if (driverTimer != nil) {
+            driverTimer?.invalidate()
+            self.driverTimer = nil
+        }
+        
     }
+    
     
     //Get the last order of the user and show the order's details
     func getOrderDetails() {
@@ -57,10 +64,8 @@ class OrderVC: UIViewController {
                 self.statusLbl.text = "Order Status".localized(category: "Order") + statusName
                 let userAddress = User.shared.getAddress()
                 self.getLocation(userAddress, "You".localized(category: "Order"), { (des) in
-                        self.userLoction = des
-                    })
-                
-                
+                    self.userLoction = des
+                })
                 
                 if statusName != "Delivered" {
                     self.setTimer()
@@ -72,49 +77,53 @@ class OrderVC: UIViewController {
     //Check every x Time if the driver took the order(you can set it in Constants.swift file
     func setTimer() {
         if orderTimer == nil {
-                //if there is an acitve order start to track driver location
-                self.orderTimer = Timer.scheduledTimer(
-                    timeInterval: Config.ORDER_ACTIVE_TIMER_INTERVAL,
-                    target: self,
-                    selector: #selector(self.isActiveOrder),
-                    userInfo: nil, repeats: true)
+            //if there is an acitve order start to track driver location
+            self.orderTimer = Timer.scheduledTimer(
+                timeInterval: Config.ORDER_ACTIVE_TIMER_INTERVAL,
+                target: self,
+                selector: #selector(self.isActiveOrder),
+                userInfo: nil, repeats: true)
             
         }
     }
     
     
     func isActiveOrder() {
-        APIManager.shared.getLatestOrder { (json) in
+        APIManager.shared.getLatestOrder {  (json) in
             //if there is not order(order complete) stop the timers
             if (json == JSON.null) {
                 self.driverTimer?.invalidate()
                 self.orderTimer?.invalidate()
                 return
             }
-        }
-
-        
-        APIManager.shared.isActiveOrder() { (json) in
-            //check if the Driver chose the this user order
-            //if not - delete the pin and don't update the driver loction anymore
-            if (json == JSON.null) {
-                if self.driverPin != nil {
-                    self.mapView.removeAnnotation(self.driverPin)
-                    self.driverPin = nil
+            
+            APIManager.shared.isActiveOrder() { (json) in
+                //check if the Driver chose the this user order
+                //if not - delete the pin and don't update the driver loction anymore
+                if (json == JSON.null) {
+                    if self.driverPin != nil {
+                        DispatchQueue.main.async {
+                            self.mapView.removeAnnotation(self.driverPin)
+                            self.driverPin = nil
+                        }
+                        
+                    }
+                    if self.driverTimer != nil {
+                        self.driverTimer?.invalidate()
+                        self.driverTimer = nil
+                    }
+                    return
                 }
-                if self.driverTimer != nil {
-                    self.driverTimer?.invalidate()
-                    self.driverTimer = nil
+                
+                //if yes - show driver pin on map and start  updating driver loction (you can set it in Constants.swift file)
+                if (self.driverTimer == nil) {
+                    self.driverTimer = Timer.scheduledTimer(
+                        timeInterval: Config.DRIVER_TIMER_INTERVAL,
+                        target: self,
+                        selector: #selector(self.getDriverLocation(_:)),
+                        userInfo: nil, repeats: true)
                 }
-                return
-            }
-            //if yes - show driver pin on map and start  updating driver loction every 60 seconds
-            if (self.driverTimer == nil) {
-                self.driverTimer = Timer.scheduledTimer(
-                    timeInterval: Config.DRIVER_TIMER_INTERVAL,
-                    target: self,
-                    selector: #selector(self.getDriverLocation(_:)),
-                    userInfo: nil, repeats: true)
+                
             }
             
         }
@@ -123,25 +132,30 @@ class OrderVC: UIViewController {
     //Get the Driver location and pin a map if not null
     func getDriverLocation(_ sender: AnyObject) {
         APIManager.shared.getDriverLocation { (json) in
-            if let latitude = json[0]["latitude"].string, let longitude =  json[0]["longitude"].string {
-                self.statusLbl.text = "ON  THE WAY".localized(category: "Order")
-                let coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(latitude)!, longitude: CLLocationDegrees(longitude)!)
-                // Create pin annotation for Driver
-                if self.driverPin != nil {
-                    self.driverPin.coordinate = coordinate
-                } else {
-                    self.driverPin = MKPointAnnotation()
-                    self.driverPin.coordinate = coordinate
-                    self.driverPin.title = "DRI".localized(category: "Order")
-                    self.mapView.addAnnotation(self.driverPin)
-                }
-                // Reset zoom rect to cover 3 locations
-                self.autoZoom()
-            } else {
-                if self.driverTimer != nil {
-                    self.driverTimer?.invalidate()
-                    self.driverTimer = nil
+            DispatchQueue.main.async {
+                if let latitude = json[0]["latitude"].string, let longitude =  json[0]["longitude"].string {
+                    self.statusLbl.text = "ON  THE WAY".localized(category: "Order")
+                    let coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(latitude)!, longitude: CLLocationDegrees(longitude)!)
+                    
                     self.mapView.removeAnnotation(self.driverPin)
+                    
+                    // Create pin annotation for Driver
+                    if self.driverPin != nil {
+                        self.driverPin.coordinate = coordinate
+                    } else {
+                        self.driverPin = MKPointAnnotation()
+                        self.driverPin.coordinate = coordinate
+                        self.driverPin.title = "DRI".localized(category: "Order")
+                        self.mapView.addAnnotation(self.driverPin)
+                    }
+                    // Reset zoom rect to cover 3 locations
+                    self.autoZoom()
+                } else {
+                    if self.driverTimer != nil {
+                        self.driverTimer?.invalidate()
+                        self.driverTimer = nil
+                        self.mapView.removeAnnotation(self.driverPin)
+                    }
                 }
             }
         }

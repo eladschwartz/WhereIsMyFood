@@ -24,7 +24,7 @@ class APIManager {
         //If token not empty send it with header. else headers will be empty
         if let token = Driver.shared.token {
             if token != ""{
-                httpHeaders["Authorization"] = "Bearer " + token
+                httpHeaders["Authorization"] = "Bearer \(token)"
             }
         }
         Alamofire.request(url!, method: method, parameters: params, encoding: encoding, headers: self.httpHeaders).responseJSON{ response in
@@ -34,7 +34,6 @@ class APIManager {
                 completionHandler(jsonData)
                 break
             case .failure:
-                print(response.error.debugDescription)
                 completionHandler(JSON.null)
                 break
             }

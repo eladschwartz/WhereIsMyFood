@@ -13,8 +13,8 @@ import SwiftyJSON
 class ItemListVC: UIViewController {
     @IBOutlet weak var searchItemBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
-    @IBAction func unwindToItemList(segue: UIStoryboardSegue) {}
     @IBOutlet weak var priceBtn: UIBarButtonItem! // Only for showing the price...dosn't do anything
+    @IBAction func unwindToItemList(segue: UIStoryboardSegue) {}
     
     var activityIndicator = UIActivityIndicatorView()
     var restaurant: Restaurant?

@@ -79,7 +79,10 @@ class ItemDetailsVC: UIViewController {
         }
         
         // Get all section for this item
-        APIManager.shared.getSections(id:(self.item.id)!) { (json) in
+        guard let itemId = self.item.id else {
+            return
+        }
+        APIManager.shared.getSections(id: itemId) {  (json) in
             // Create Default sections for: item image, item name, item description
             let sec1 = Section(name: "")
             let sec2 = Section(name: "")
@@ -99,49 +102,57 @@ class ItemDetailsVC: UIViewController {
                     let section = Section(sectionId: sectionId,sectionType: sectionType, sectionName: sectionName, isRequired: isRequired)
                     self.item.sections.append(section)
                 }
-                // get all addons for this item and assign them to the correct sections
-                APIManager.shared.getAddons(id:(self.item.id)!) { (json) in
-                    if (json != JSON.null) {
-                        for addon in json.array!{
-                            guard let addonID =  Int(addon["addon_id"].string!),
-                                let addonDetailId =  Int(addon["addon_detail_id"].string!),
-                                let addonName = addon["addon_name"].string,
-                                let sectionName = addon["section_name"].string,
-                                let sectionId = Int(addon["section_id"].string!) else {
-                                    return
-                            }
-                            // some addons doesn't have a price
-                            var addonPrice = addon["price"].string
-                            if ( addonPrice == nil) {
-                                addonPrice = ""
-                            }
-                            // Create new addon, search for the section in the array and add the addon to his section
-                            // 
-                            let addon = Addon(id: addonID,addonDetailId:addonDetailId, name: addonName, itemId: String(describing: self.item.id!) ,sectionName:sectionName ,sectionId: sectionId, price: addonPrice!)
-                            self.item.addons.append(addon)
-                            let isSectionExist = self.item.sections.filter{ $0.id == addon.sectionId }.count > 0
-                            if (isSectionExist) {
-                                let sectionObj = self.item.sections.filter({ $0.id == addon.sectionId }).first
-                                sectionObj?.addToDetails(addon:addon)
-                            }
-                        }
-                        if (!self.isEditMode){
-                            self.addRrequiredToArray()
-                        }
-                        
-                        DispatchQueue.main.async(){
-                            self.tableView.reloadData()
-                            self.tableView.isHidden = false
-                            self.stopActivityIndicatior()
-                            
-                        }
-                    }
-                }
+                
+                self.getAddon(itemId: itemId)
+            
                 if (self.isEditMode){self.checkSelctedAddons()}
             }
         }
-        
     }
+    
+    func getAddon(itemId: Int) {
+        // get all addons for this item and assign them to the correct sections
+        APIManager.shared.getAddons(id: itemId) { (json) in
+            if (json != JSON.null) {
+                for addon in json.array!{
+                    guard let addonID =  Int(addon["addon_id"].string!),
+                        let addonDetailId =  Int(addon["addon_detail_id"].string!),
+                        let addonName = addon["addon_name"].string,
+                        let sectionName = addon["section_name"].string,
+                        let sectionId = Int(addon["section_id"].string!) else {
+                            return
+                    }
+                    
+                    // some addons doesn't have a price
+                    var addonPrice = addon["price"].string
+                    if (addonPrice == nil) {
+                        addonPrice = ""
+                    }
+                    
+                    // Create new addon, search for the section in the array and add the addon to his section
+                    let addon = Addon(id: addonID,addonDetailId:addonDetailId, name: addonName, itemId: String(itemId) ,sectionName:sectionName ,sectionId: sectionId, price: addonPrice!)
+                    self.item.addons.append(addon)
+                    let isSectionExist = self.item.sections.filter{ $0.id == addon.sectionId }.count > 0
+                    if (isSectionExist) {
+                        let sectionObj = self.item.sections.filter({ $0.id == addon.sectionId }).first
+                        sectionObj?.addToDetails(addon:addon)
+                    }
+                }
+                if (!self.isEditMode){
+                    self.addRrequiredToArray()
+                }
+                
+                DispatchQueue.main.async() {
+                    self.tableView.reloadData()
+                    self.tableView.isHidden = false
+                    self.stopActivityIndicatior()
+                    
+                }
+            }
+        }
+    }
+    
+    
     
     // In Edit Mode - loop over all the selcted addons and change the checkbox image to checked
     func checkSelctedAddons() {
@@ -225,6 +236,7 @@ class ItemDetailsVC: UIViewController {
         self.qty += 1
         calculateCurrentPrice()
         self.qtyLbl.text =  String(self.qty)
+        
     }
     
     // Substract 1 from current qty
@@ -240,6 +252,7 @@ class ItemDetailsVC: UIViewController {
         if let price = item.price {
             if (item.addonsSelected.count == 0 ) {
                 currentTotal =  price * Double(self.qty)
+                self.priceLbl.text = "\(Config.CURRENCY_SIGN)\(currentTotal)"
             } else {
                 let totalAddons = item.getAddonsSeletedTotal()
                 currentTotal =  (price + totalAddons) * Double(self.qty)
