@@ -36,11 +36,12 @@ class MainVC: UIViewController {
     func getCurrency() {
         APIManager.shared.getCurrency { (json) in
             if (json != JSON.null) {
-                Config.CURRENCY_SIGN = json.string!
+                if let currency = json.array {
+                      Config.CURRENCY_SIGN = currency[0]["symbol"].string!
+                }
             }
         }
     }
-    
 }
 
 
